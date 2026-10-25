@@ -11,7 +11,7 @@ module.exports = function (eleventyConfig) {
     searchPaths: ["src/_includes", "src"] 
   });
 
-   eleventyConfig.addPlugin(HtmlBasePlugin);
+   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
 	eleventyConfig.setLibrary("njk", nunjucksEnvironment);
   eleventyConfig.addPassthroughCopy("assets");
