@@ -6,9 +6,22 @@
     "build-ghpages": "npx @11ty/eleventy --pathprefix=/phil-cheshire-studio/"
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.1.7"
+    "@11ty/eleventy": "^3.1.7",
+    "del": "^9.0.1",
+    "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-dependents": "^1.2.5",
+    "gulp-livereload": "^4.0.2",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.106.1"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "fsevents@2.3.3": true
   },
   "devDependencies": {
-    "grunt": "^1.6.3"
+    "browser-sync": "^3.0.4",
+    "browsersync": "^0.0.1-security"
   }
 }

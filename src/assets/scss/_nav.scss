@@ -1,0 +1,95 @@
+nav {
+  &.menu {
+    ul {
+      font-weight: 500;
+      li {
+        span {
+          font-family: 'Kiwi Maru', serif;
+          color: var(--color-theme-dark-background);
+        }
+      }
+    }
+   
+    &--global {
+      ul {
+        list-style: none;
+        text-align: right
+      }
+    }
+    &--home {
+      ul {
+        max-width: 83.75rem;
+        margin: 0 auto;
+        list-style: none;
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 3rem;
+          a {
+            display: flex;
+            width: 100%;
+            height: 11.75rem;
+            background-size: cover;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            line-height: 1.444;
+            span {
+              display: block;
+              padding: 0.65rem 1rem 0.75rem 1.25rem;
+              font-size: 2.25rem;
+              background-color: var(--color-theme-dark-background);
+              transition: 0.3s background-color ease;
+              color: white;
+            }
+            &.home-banner {
+              &--web {
+                background: url(../images/web-home-overlay.png) no-repeat left top transparent;
+              }
+              &--video {
+                background: url(../images/video-home-overlay.png) no-repeat left top transparent;
+              }
+              &--songwriting {
+                background: url(../images/songwriting-home-overlay.png) no-repeat left top transparent;
+              }
+              &:hover {
+                span {
+                  background-color: var(--color-theme-links);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &--global {
+      ul {
+        font-size: 1.25rem;
+        li {
+          padding: 0.5rem 0;
+        }
+      }
+    }
+    &--secondary {
+      background-color: var(--color-theme-secondary-menu-background);
+      margin-top: -2rem;
+      padding-top: 1.25rem;
+      padding-bottom: 2.25rem;
+      padding: 1.25rem 4.5rem 2.25rem;
+      ul {
+        list-style: none;
+        text-align: center;
+        font-size: 1.5rem;
+        li {
+          display: block;
+          margin-bottom: 1rem;
+          line-height: 1.46;
+          &:last-of-type {
+            margin-bottom:0;
+          }
+        }
+      }
+    }
+  }
+}

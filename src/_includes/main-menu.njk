@@ -1,0 +1,19 @@
+{% set secondaryNavItems = [
+    { url: "/websites-and-web-apps/", label: "Websites & web apps" },
+    { url: "/video-and-film-editing/", label: "Video & film editing" },
+    { url: "/songwriting-and-production/", label: "Songwriting & production" }
+] %}
+<nav class="menu menu--secondary">
+    <ul>
+        {% for item in secondaryNavItems %}
+            {% set isCurrent = (page and page.url and page.url == item.url) %}
+            <li>
+                {% if isCurrent %}
+                    <span>{{ item.label }}</span>
+                {% else %}
+                    <a href="{{ item.url }}">{{ item.label }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -1,0 +1,13 @@
+$container-background-color: #F6F6F4;
+$home-h1-color: #918289;
+$link-color: #D90368;
+$dark-background: #291720;
+$secondary-menu-background: #F5ECEE;
+
+:root {
+  --color-theme-site-container-background: #{$container-background-color};
+  --color-theme-h1-home: #{$home-h1-color};
+  --color-theme-links: #{$link-color};
+  --color-theme-dark-background: #{$dark-background};
+  --color-theme-secondary-menu-background: #{$secondary-menu-background};
+}
