@@ -1,5 +1,9 @@
 const Nunjucks = require("nunjucks");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
+const { INLINES } = require('@contentful/rich-text-types');
+
+require('dotenv').config();
 
 module.exports = function (eleventyConfig) {
 	let nunjucksEnvironment = new Nunjucks.Environment(
@@ -11,17 +15,29 @@ module.exports = function (eleventyConfig) {
     searchPaths: ["src/_includes", "src"] 
   });
 
-   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
 	eleventyConfig.setLibrary("njk", nunjucksEnvironment);
   eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addShortcode("homeLogoLink", function(url, label) {
-    // 'this.page.url' checks the context of the page currently being processed
+  eleventyConfig.addShortcode("homeLogoLink", function(url) {
     const isCurrent = this.page.url === url;
     if (isCurrent) {
       return `<img src="/assets/images/logo.svg" alt="Site logo">`
     }
     return `<a href="${url}" aria-label="Go to homepage"><img src="/assets/images/logo.svg" alt="Site logo"></a>`;
+  });
+  eleventyConfig.addFilter("toHtml", function(richTextField) {
+    if (!richTextField) return "";
+    const options = {
+      renderNode: {
+        [INLINES.EMBEDDED_ENTRY]: (node) => {
+          if (!node?.data?.target?.fields) return '';
+          const fields = node.data.target.fields;
+          return `${fields.columnName || 'Name not found'}`;
+        }
+      }
+    };
+    return documentToHtmlString(richTextField, options);
   });
 };
 

@@ -4,3 +4,16 @@ title:
     Websites and Web Apps > PhilCheshire.studio
 ---
 <h1>Websites & web apps</h1>
+<div class="banners-grid">
+  {% for banner in caseStudyBanners %}
+    <article class="banner-item">
+        {% if banner.fields.projectPhoto %}
+        <img src="{{ banner.fields.projectPhoto.fields.file.url }}" alt="{{ banner.fields.projectPhoto.fields.title }}">
+        {% endif %}
+        {{ banner.fields.projectInfoTable | toHtml | safe }}
+        {{ banner.fields.projectLink | toHtml | safe }}
+    </article>
+  {% else %}
+    <p>No banners found.</p>
+  {% endfor %}
+</div>
