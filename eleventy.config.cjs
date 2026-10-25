@@ -19,9 +19,9 @@ module.exports = function (eleventyConfig) {
     // 'this.page.url' checks the context of the page currently being processed
     const isCurrent = this.page.url === url;
     if (isCurrent) {
-      return `<img src="../assets/images/logo.svg" alt="Site logo">`
+      return `<img src="/assets/images/logo.svg" alt="Site logo">`
     }
-    return `<a href="${url}" aria-label="Go to homepage"><img src="../assets/images/logo.svg" alt="Site logo"></a>`;
+    return `<a href="${url}" aria-label="Go to homepage"><img src="/assets/images/logo.svg" alt="Site logo"></a>`;
   });
 };
 
