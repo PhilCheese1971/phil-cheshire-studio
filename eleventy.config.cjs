@@ -11,21 +11,10 @@ module.exports = function (eleventyConfig) {
     searchPaths: ["src/_includes", "src"] 
   });
 
-  const { HtmlBasePlugin } = require("@11ty/eleventy");
-
-module.exports = function(eleventyConfig) {
-  // This automatically applies your pathPrefix to all root-relative links
-  eleventyConfig.addPlugin(HtmlBasePlugin);
-
-  const isProduction = process.env.NODE_ENV === "production" || process.env.GITHUB_ACTIONS;
-
-  return {
-    pathPrefix: isProduction ? "/phil-cheshire-studio" : "/"
-  };
-};
+   eleventyConfig.addPlugin(HtmlBasePlugin);
 
 	eleventyConfig.setLibrary("njk", nunjucksEnvironment);
-  eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addShortcode("homeLogoLink", function(url, label) {
     // 'this.page.url' checks the context of the page currently being processed
     const isCurrent = this.page.url === url;
