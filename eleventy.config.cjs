@@ -20,7 +20,7 @@ module.exports = function(eleventyConfig) {
   const isProduction = process.env.NODE_ENV === "production" || process.env.GITHUB_ACTIONS;
 
   return {
-    pathPrefix: isProduction ? "/phil-cheshire-studio/" : "/"
+    pathPrefix: isProduction ? "/phil-cheshire-studio" : "/"
   };
 };
 
