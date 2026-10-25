@@ -17,9 +17,10 @@ module.exports = function(eleventyConfig) {
   // This automatically applies your pathPrefix to all root-relative links
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
+  const isProduction = process.env.NODE_ENV === "production" || process.env.GITHUB_ACTIONS;
+
   return {
-    // Must match your GitHub Pages repository name exactly
-    pathPrefix: "/phil-cheshire-studio/" 
+    pathPrefix: isProduction ? "/phil-cheshire-studio/" : "/"
   };
 };
 
