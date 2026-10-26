@@ -54,11 +54,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+      
+      - name: Add Environment Variables
+        env:
+          CTFL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }}
+        run: echo "Environment variables configured."
 
       - name: Build project
         run: npm run build-ghpages
-        env:
-          CTFL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }}
       
       - name: Upload static files as artifact
         id: deployment
