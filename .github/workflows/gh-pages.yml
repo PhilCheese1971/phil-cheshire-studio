@@ -28,6 +28,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
+    env:
+      CTFL_SPACE: ${{ secrets.CTFL_SPACE }}
+      CTFL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }}
     permissions:
       contents: write
     concurrency:
@@ -54,11 +58,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-      
-      - name: Add Environment Variables
-        env:
-          CTFL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }} >> "$GITHUB_ENV"
-        run: echo "Environment variables configured."
 
       - name: Build project
         run: npm run build-ghpages
