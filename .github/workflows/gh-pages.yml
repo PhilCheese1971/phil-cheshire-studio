@@ -58,8 +58,8 @@ jobs:
       - name: 'Create env file'
         run: |
           touch .env
-          echo CTFL_SPACE=${{ secrets.CTFL_SPACE }} >> .env
-          echo CTFL_ACCESSTOKEN=${{ secrets.CTFL_ACCESSTOKEN }} >> .env
+          echo space=${{ secrets.CTFL_SPACE }} >> .env
+          echo accessToken=${{ secrets.CTFL_ACCESSTOKEN }} >> .env
           cat .env
 
       - name: Upload static files as artifact
