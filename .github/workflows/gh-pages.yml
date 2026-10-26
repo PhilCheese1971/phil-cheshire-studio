@@ -51,12 +51,14 @@ jobs:
         with:
           path: ./.cache
           key: ${{ runner.os }}-eleventy-fetch-cache
+
       - name: Install dependencies
         run: npm ci
+
       - name: Build project
         run: npm run build-ghpages
         env:
-          accessKey: ${{ secrets.CTFL_ACCESSTOKEN }}
+          CTFL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }}
       
       - name: Upload static files as artifact
         id: deployment
