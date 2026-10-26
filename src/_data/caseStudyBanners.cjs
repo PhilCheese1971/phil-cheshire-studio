@@ -1,8 +1,8 @@
 const contentful = require('contentful')
 
 const client = contentful.createClient({
-  space: process.env.CTFL_SPACE,
-  accessToken: process.env.CTFL_ACCESSTOKEN,
+  space: uktepak5k90i,
+  accessToken: XI0jg7Q9IcwHS-so35lE5c9m4fORVFWzIYqfyvSCMqA,
   environment: 'master'
 });
 
