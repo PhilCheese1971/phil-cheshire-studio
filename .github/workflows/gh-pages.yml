@@ -35,6 +35,13 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # 6.0.2
 
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo CTFL_SPACE=${{ secrets.CTFL_SPACE }} >> .env
+          echo CTFL_ACCESSTOKEN=${{ secrets.CTFL_ACCESSTOKEN }} >> .env
+          cat .env
+
       - name: Setup Node
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 6.3.0
         with:
