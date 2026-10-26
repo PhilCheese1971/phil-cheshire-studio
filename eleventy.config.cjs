@@ -5,7 +5,6 @@ const { INLINES } = require('@contentful/rich-text-types');
 
 require('dotenv').config();
 
-
 module.exports = function (eleventyConfig) {
 	let nunjucksEnvironment = new Nunjucks.Environment(
 		new Nunjucks.FileSystemLoader(["src/_includes", "src"])
