@@ -57,7 +57,7 @@ jobs:
       
       - name: Add Environment Variables
         env:
-          CTFL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }}
+          CTFL_ACCESSTOKEN: ${{ secrets.CTFL_ACCESSTOKEN }} >> "$GITHUB_ENV"
         run: echo "Environment variables configured."
 
       - name: Build project
