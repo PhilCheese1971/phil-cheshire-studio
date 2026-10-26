@@ -11,6 +11,6 @@ module.exports = async () => {
   const banners = await client.getEntries({
     content_type: 'websitesHomeCaseStudyBanner'
   });
-  
-  return banners.items; 
+  console.log(banners.length)
+  return banners.items;
 };

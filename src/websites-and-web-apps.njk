@@ -8,7 +8,7 @@ title:
   {% for banner in caseStudyBanners %}
     <article class="banner-item">
         {% if banner.fields.projectPhoto %}
-        <img src="{{ banner.fields.projectPhoto.fields.file.url }}" alt="{{ banner.fields.projectPhoto.fields.title }}">
+            <img src="{{ banner.fields.projectPhoto.fields.file.url }}" alt="{{ banner.fields.projectPhoto.fields.description }}">
         {% endif %}
         {{ banner.fields.projectInfoTable | toHtml | safe }}
         {{ banner.fields.projectLink | toHtml | safe }}
