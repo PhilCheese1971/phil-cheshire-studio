@@ -14,14 +14,7 @@
     "@11ty/eleventy": "^3.1.7",
     "@contentful/rich-text-html-renderer": "^17.2.3",
     "@contentful/rich-text-types": "^17.2.7",
-    "cross-env": "^10.1.0",
-    "del": "^9.0.1",
-    "gulp": "^5.0.1",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-dependents": "^1.2.5",
-    "gulp-livereload": "^4.0.2",
-    "gulp-sass": "^6.0.1",
-    "gulp-sourcemaps": "^3.0.0"
+    "del": "^9.0.1"
   },
   "allowScripts": {
     "@parcel/watcher@2.6.0": true,
@@ -30,12 +23,9 @@
     "dotenv@18.0.9": true,
     "@contentful/rich-text-html-renderer@17.2.3": true,
     "@contentful/rich-text-types@17.2.7": true,
-    "cross-env@10.1.0": true,
     "es5-ext@0.10.64": true
   },
   "devDependencies": {
-    "browser-sync": "^3.0.4",
-    "browsersync": "^0.0.1-security",
     "contentful": "^11.12.10",
     "dotenv": "^18.0.9",
     "npm-run-all": "^4.1.5",

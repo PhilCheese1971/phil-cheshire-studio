@@ -30,6 +30,8 @@ module.exports = function (eleventyConfig) {
     return `<a href="${url}" aria-label="Go to homepage"><img src="/assets/images/logo.svg" alt="Site logo"></a>`;
   });
 
+  eleventyConfig.addFilter("richText", (doc) => (doc ? documentToHtmlString(doc) : ""));
+  
   eleventyConfig.addFilter("toHtml", function(richTextField) {
     if (!richTextField) return "";
     const options = {
