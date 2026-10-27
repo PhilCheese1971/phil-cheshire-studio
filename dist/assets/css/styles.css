@@ -1,2 +1,412 @@
-*,::after,::before{box-sizing:border-box}:where(:not(dialog)){margin:0;padding:0}@media (prefers-reduced-motion:no-preference){:where(html){scroll-behavior:smooth}}:where(html){line-height:1.5;-webkit-font-smoothing:antialiased}:where(html,body){min-block-size:100%}:where(h1,h2,h3,h4,h5,h6){text-wrap:balance}:where(p){text-wrap:pretty}:where(figure)>:where(figcaption){text-wrap:balance}:where(p,h1,h2,h3,h4,h5,h6){overflow-wrap:break-word}:where(img,svg,video,canvas,picture,audio,iframe,embed,object){display:block}:where(img,svg,video,canvas,picture){block-size:auto;max-inline-size:100%}:where(input,button,textarea,select),:where(input[type=file])::-webkit-file-upload-button{font:inherit;letter-spacing:inherit}:where(textarea){resize:vertical;field-sizing:content}:where(table){width:fit-content;border-collapse:collapse}:where(pre){direction:ltr;max-inline-size:max-content;min-inline-size:0;white-space:pre;writing-mode:lr}:where(a[href],area,button,input:not([type=text],[type=email],[type=number],[type=password],[type=""],[type=tel],[type=url]),label[for],select,summary,[tabindex]:not([tabindex*="-"],pre)){cursor:pointer}:where(a[href],area,button,input,label[for],select,summary,textarea,[tabindex]:not([tabindex*="-"])){touch-action:manipulation}:root{--color-theme-site-container-background:#F6F6F4;--color-theme-h1-home:#918289;--color-theme-links:#D90368;--color-theme-dark-background:#291720;--color-theme-secondary-menu-background:#F5ECEE}html{background-color:#eee}body{padding-top:3.5rem}.site-container{max-width:1440px;margin:0 auto;padding:2rem 3.25rem 3.25rem;background-color:var(--color-theme-site-container-background)}a{font-family:"Kiwi Maru",serif;color:var(--color-theme-links)}a:hover{background-color:var(--color-theme-dark-background);color:#fff;text-decoration:none}header{display:grid;grid-template-areas:"column1 column2 column3";grid-template-columns:1fr 1fr 1fr;grid-auto-flow:row;grid-gap:0}.column1{grid-area:column1;grid-row:auto}.column2{grid-area:column2;grid-row:auto/span 2}.column3{grid-area:column3;grid-row:auto}h1{font-optical-sizing:auto;font-style:normal;text-align:center;font-family:"Kiwi Maru",serif;font-size:2.5rem;font-weight:500}header h1{font-size:clamp(4rem,8vw,8rem);font-weight:900;font-family:"Roboto Slab",serif;color:var(--color-theme-h1-home);line-height:104.5%}header p{font-size:clamp(.75rem,8vw,1.125rem)}header h1,header p{text-align:center}p:not(mainp){font-family:"Kiwi Maru",serif}main p{font-family:"Open Sans",serif}header{margin-bottom:76px}header img{margin-top:2rem}nav.menu ul{font-weight:500}nav.menu ul li span{font-family:"Kiwi Maru",serif;color:var(--color-theme-dark-background)}nav.menu--global ul{list-style:none;text-align:right}nav.menu--home ul{max-width:83.75rem;margin:0 auto;list-style:none}nav.menu--home ul li{display:flex;align-items:center;margin-bottom:3rem}nav.menu--home ul li a{display:flex;width:100%;height:11.75rem;background-size:cover;align-items:center;justify-content:center;color:#fff;text-decoration:none;line-height:1.444}nav.menu--home ul li a span{display:block;padding:.65rem 1rem .75rem 1.25rem;font-size:2.25rem;background-color:var(--color-theme-dark-background);transition:.3s background-color ease;color:#fff}nav.menu--home ul li a.home-banner--web{background:url(../images/web-home-overlay.png) no-repeat left top transparent}nav.menu--home ul li a.home-banner--video{background:url(../images/video-home-overlay.png) no-repeat left top transparent}nav.menu--home ul li a.home-banner--songwriting{background:url(../images/songwriting-home-overlay.png) no-repeat left top transparent}nav.menu--home ul li a.home-banner:hover span{background-color:var(--color-theme-links)}nav.menu--global ul{font-size:1.25rem}nav.menu--global ul li{padding:.5rem 0}nav.menu--secondary{background-color:var(--color-theme-secondary-menu-background);margin-top:-2rem;padding-top:1.25rem;padding-bottom:2.25rem;padding:1.25rem 4.5rem 2.25rem}nav.menu--secondary ul{list-style:none;text-align:center;font-size:1.5rem}nav.menu--secondary ul li{display:block;margin-bottom:1rem;line-height:1.46}nav.menu--secondary ul li:last-of-type{margin-bottom:0}footer{display:flex;justify-content:center}footer p{font-size:1.5rem}
-/*# sourceMappingURL=styles.css.map */
+@charset "UTF-8";
+/* Reset CSS by Amaka Ndukwu */
+/* making use of :where to allow for low specificity making it easy to override */
+/* 1. border-box for box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. remove default margin 
+padding is optional but i do this because of lists*/
+:where(:not(dialog)) {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. great for in-page linking */
+@media (prefers-reduced-motion: no-preference) {
+  :where(html) {
+    scroll-behavior: smooth;
+  }
+}
+/* 4. line height and text rendering improvement */
+:where(html) {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. ensure full viewport height */
+:where(html, body) {
+  min-block-size: 100%;
+}
+
+/* 6. improve line wrapping */
+:where(h1, h2, h3,
+h4, h5, h6) {
+  text-wrap: balance;
+}
+
+:where(p) {
+  text-wrap: pretty;
+}
+
+:where(figure) > :where(figcaption) {
+  text-wrap: balance;
+}
+
+:where(p, h1, h2, h3,
+h4, h5, h6) {
+  overflow-wrap: break-word;
+}
+
+/* 7. making media elements block-level */
+:where(img,
+svg,
+video,
+canvas,
+picture,
+audio,
+iframe,
+embed,
+object) {
+  display: block;
+}
+
+:where(img, svg, video, canvas, picture) {
+  block-size: auto;
+  max-inline-size: 100%;
+}
+
+/* 8. inherit font and letter spacing for form controls */
+:where(input,
+button,
+textarea,
+select),
+:where(input[type=file])::-webkit-file-upload-button {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* 9. textarea can only resized vertically and will grow to adjust its content */
+:where(textarea) {
+  resize: vertical;
+  field-sizing: content;
+}
+
+/* 10. table */
+:where(table) {
+  width: fit-content;
+  border-collapse: collapse;
+}
+
+:where(pre) {
+  direction: ltr;
+  max-inline-size: max-content;
+  min-inline-size: 0;
+  white-space: pre;
+  writing-mode: lr;
+}
+
+:where(a[href],
+area,
+button,
+input:not([type=text],
+[type=email],
+[type=number],
+[type=password],
+[type=""],
+[type=tel],
+[type=url]),
+label[for],
+select,
+summary,
+[tabindex]:not([tabindex*="-"],
+pre)) {
+  cursor: pointer;
+}
+
+/*  this will disable additional non-standard gestures such as double-tap to zoom*/
+:where(a[href],
+area,
+button,
+input,
+label[for],
+select,
+summary,
+textarea,
+[tabindex]:not([tabindex*="-"])) {
+  touch-action: manipulation;
+}
+
+:root {
+  --color-theme-site-container-background: #F6F6F4;
+  --color-theme-h1-home: #918289;
+  --color-theme-links: #D90368;
+  --color-theme-dark-background: #291720;
+  --color-theme-secondary-menu-background: #F5ECEE;
+}
+
+html {
+  background-color: #EEEEEE;
+}
+
+body {
+  padding-top: 3.5rem;
+}
+
+.site-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 3.25rem 3.25rem;
+  background-color: var(--color-theme-site-container-background);
+}
+
+a {
+  font-family: "Kiwi Maru", serif;
+  color: var(--color-theme-links);
+}
+a:hover {
+  background-color: var(--color-theme-dark-background);
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  display: grid;
+  grid-template-areas: "column1 column2 column3";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  grid-gap: 0;
+}
+
+.column1 {
+  grid-area: column1;
+  grid-row: auto;
+}
+
+.column2 {
+  grid-area: column2;
+  grid-row: auto/span 2;
+}
+
+.column3 {
+  grid-area: column3;
+  grid-row: auto;
+}
+
+h1 {
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-align: center;
+  font-family: "Kiwi Maru", serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+header h1 {
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900;
+  font-family: "Roboto Slab", serif;
+  color: var(--color-theme-h1-home);
+  line-height: 104.5%;
+}
+header p {
+  font-size: clamp(0.75rem, 8vw, 1.125rem);
+}
+header h1, header p {
+  text-align: center;
+}
+
+p:not(main p) {
+  font-family: "Kiwi Maru", serif;
+}
+
+main p {
+  font-family: "Open Sans", serif;
+}
+
+header {
+  margin-bottom: 76px;
+}
+header img {
+  margin-top: 2rem;
+}
+
+nav.menu ul {
+  font-weight: 500;
+}
+nav.menu ul li span {
+  font-family: "Kiwi Maru", serif;
+  color: var(--color-theme-dark-background);
+}
+nav.menu--global ul {
+  list-style: none;
+  text-align: right;
+}
+nav.menu--home ul {
+  max-width: 83.75rem;
+  margin: 0 auto;
+  list-style: none;
+}
+nav.menu--home ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+nav.menu--home ul li a {
+  display: flex;
+  width: 100%;
+  height: 11.75rem;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  line-height: 1.444;
+}
+nav.menu--home ul li a span {
+  display: block;
+  padding: 0.65rem 1rem 0.75rem 1.25rem;
+  font-size: 2.25rem;
+  background-color: var(--color-theme-dark-background);
+  transition: 0.3s background-color ease;
+  color: white;
+}
+nav.menu--home ul li a.home-banner--web {
+  background: url(../images/web-home-overlay.png) no-repeat left top transparent;
+}
+nav.menu--home ul li a.home-banner--video {
+  background: url(../images/video-home-overlay.png) no-repeat left top transparent;
+}
+nav.menu--home ul li a.home-banner--songwriting {
+  background: url(../images/songwriting-home-overlay.png) no-repeat left top transparent;
+}
+nav.menu--home ul li a.home-banner:hover span {
+  background-color: var(--color-theme-links);
+}
+nav.menu--global ul {
+  font-size: 1.25rem;
+}
+nav.menu--global ul li {
+  padding: 0.5rem 0;
+}
+nav.menu--secondary {
+  background-color: var(--color-theme-secondary-menu-background);
+  margin-top: -2rem;
+  padding-top: 1.25rem;
+  padding-bottom: 2.25rem;
+  padding: 1.25rem 4.5rem 2.25rem;
+}
+nav.menu--secondary ul {
+  list-style: none;
+  text-align: center;
+  font-size: 1.5rem;
+}
+nav.menu--secondary ul li {
+  display: block;
+  margin-bottom: 1rem;
+  line-height: 1.46;
+}
+nav.menu--secondary ul li:last-of-type {
+  margin-bottom: 0;
+}
+
+lite-youtube {
+  background-color: #000;
+  position: relative;
+  display: block;
+  contain: content;
+  background-position: center center;
+  background-size: cover;
+  cursor: pointer;
+  max-width: 720px;
+}
+
+/* gradient */
+lite-youtube::before {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  top: 0;
+  /* Pixel-perfect port of YT's gradient PNG, using https://github.com/bluesmoon/pngtocss plus optimizations */
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.67) 0%, rgba(0, 0, 0, 0.54) 14%, rgba(0, 0, 0, 0.15) 54%, rgba(0, 0, 0, 0.05) 72%, rgba(0, 0, 0, 0) 94%);
+  height: 99px;
+  width: 100%;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+  color: hsl(0, 0%, 93.33%);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  padding: 25px 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+lite-youtube:hover::before {
+  color: white;
+}
+
+/* responsive iframe with a 16:9 aspect ratio
+    thanks https://css-tricks.com/responsive-iframes/
+*/
+lite-youtube::after {
+  content: "";
+  display: block;
+  padding-bottom: 56.25%;
+}
+
+lite-youtube > iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+}
+
+/* play button */
+lite-youtube > .lyt-playbtn {
+  display: block;
+  /* Make the button element cover the whole area for a large hover/click target… */
+  width: 100%;
+  height: 100%;
+  /* …but visually it's still the same size */
+  background: no-repeat center/68px 48px;
+  /* YT's actual play button svg */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  filter: grayscale(100%);
+  transition: filter 0.1s cubic-bezier(0, 0, 0.2, 1);
+  border: 0;
+}
+
+lite-youtube:hover > .lyt-playbtn,
+lite-youtube .lyt-playbtn:focus {
+  filter: none;
+}
+
+/* Post-click styles */
+lite-youtube.lyt-activated {
+  cursor: unset;
+}
+
+lite-youtube.lyt-activated::before,
+lite-youtube.lyt-activated > .lyt-playbtn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lyt-visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+footer p {
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../../src/assets/scss/_reset.scss%22,%22../../../src/assets/scss/_variables.scss%22,%22../../../src/assets/scss/_base.scss%22,%22../../../src/assets/scss/_grid.scss%22,%22../../../src/assets/scss/_typography.scss%22,%22../../../src/assets/scss/_header.scss%22,%22../../../src/assets/scss/_nav.scss%22,%22../../../src/assets/scss/_youtube.scss%22,%22../../../src/assets/scss/_footer.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAEA;AAGA;AACA;AAAA;AAAA;EAGI;;;AAGJ;EACI;;;AAGJ;AAAA;AAGA;EACI;EACA;;;AAGJ;AACA;EACI;IACI;;;AAIR;AACA;EACI;EACA;;;AAGJ;AACA;EACI;;;AAGJ;AACA;AAAA;EAEI;;;AAGJ;EACI;;;AAGJ;EACI;;;AAGJ;AAAA;EAEI;;;AAKJ;AACA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASI;;;AAGJ;EACI;EACA;;;AAGJ;AACA;AAAA;AAAA;AAAA;AAAA;EAKI;EACA;;;AAGJ;AACA;EACI;EACD;;;AAGH;AACA;EACI;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EAeI;;;AAGJ;AACA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASI;;;ACrIJ;EACE;EACA;EACA;EACA;EACA;;;ACXF;EACI;;;AAGJ;EACI;;;AAGJ;EACI;EACA;EACA;EACA;;;AAGJ;EACI;EACA;;AACA;EACI;EACA;EACA;;;ACrBR;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACE;EACA;;;AAEF;EACE;EACA;;;AAEF;EACE;EACA;;;AClBF;EACI;EACA;EACA;EACA;EACA;EACA;;;AAGA;EACI;EACA;EACA;EACA;EACA;;AAEJ;EACI;;AAEJ;EACI;;;AAIR;EACI;;;AAGJ;EACI;;;AC7BJ;EACI;;AACA;EACI;;;ACAJ;EACE;;AAEE;EACE;EACA;;AAKJ;EACE;EACA;;AAIF;EACE;EACA;EACA;;AACA;EACE;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;;AAGA;EACE;;AAEF;EACE;;AAEF;EACE;;AAGA;EACE;;AASZ;EACE;;AACA;EACE;;AAIN;EACE;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;;AACA;EACE;EACA;EACA;;AACA;EACE;;;ACxFZ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;AACA;EACI;EACA;EACA;EACA;AACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;;;AAGJ;AAAA;AAAA;AAGA;EACI;EACA;EACA;;;AAEJ;EACI;EACA;EACA;EACA;EACA;EACA;;;AAGJ;AACA;EACI;AACA;EACA;EACA;AACA;EACA;AACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;AAAA;EAEI;;;AAGJ;AACA;EACI;;;AAEJ;AAAA;EAEI;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;;AC7FJ;EACI;EACA;;AACA;EACI%22,%22file%22:%22styles.css%22%7D */

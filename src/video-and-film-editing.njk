@@ -3,3 +3,19 @@ layout: base.njk
 title: Video and Film Editing > PhilCheshire.studio
 ---
 <h1>Video & film editing</h1>
+<div class="panel-grid">
+  {% for panel in videoAndFilmPanels %}
+    <article class="panel">
+        <span class="film-tag">{{ panel.fields.filmAndVideoTag }}</span>
+        {% set videoTitle = panel.fields.filmAndVideoHeading %}
+        {% set videoId = panel.fields.youTubeReference %}
+        {% include 'youtube.njk' %}
+        <h2>{{ panel.fields.filmAndVideoHeading }}</h2>
+        <p>{{ panel.fields.filmAndVideoDescription }}</p>
+        <hr>
+        Editing {{ panel.fields.filmAndVideoEditingList }}
+    </article>
+  {% else %}
+    <p>No panels found.</p>
+  {% endfor %}
+</div>

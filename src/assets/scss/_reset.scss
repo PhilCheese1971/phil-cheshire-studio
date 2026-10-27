@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+.pointless5{ 
+    border: 1px solid red
+}
+
 /* 2. remove default margin 
 padding is optional but i do this because of lists*/
 
@@ -17,7 +21,6 @@ padding is optional but i do this because of lists*/
     margin: 0;
     padding: 0;
 }
-
 
 /* 3. great for in-page linking */
 @media(prefers-reduced-motion: no-preference) {

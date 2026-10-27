@@ -18,7 +18,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
 	eleventyConfig.setLibrary("njk", nunjucksEnvironment);
-  eleventyConfig.addPassthroughCopy("assets");
+
+  eleventyConfig.addPassthroughCopy("src/assets/js");
+  eleventyConfig.addPassthroughCopy("src/assets/images");
+
   eleventyConfig.addShortcode("homeLogoLink", function(url) {
     const isCurrent = this.page.url === url;
     if (isCurrent) {
@@ -26,6 +29,7 @@ module.exports = function (eleventyConfig) {
     }
     return `<a href="${url}" aria-label="Go to homepage"><img src="/assets/images/logo.svg" alt="Site logo"></a>`;
   });
+
   eleventyConfig.addFilter("toHtml", function(richTextField) {
     if (!richTextField) return "";
     const options = {
@@ -39,11 +43,13 @@ module.exports = function (eleventyConfig) {
     };
     return documentToHtmlString(richTextField, options);
   });
-};
 
-module.exports.config = {
-  dir: {
-    input: "src",
-    output: "dist"
-  }
+  
+
+  return {
+     dir: {
+      input: "src",
+      output: "dist"
+    }
+  };
 };
