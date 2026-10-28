@@ -1223,6 +1223,10 @@ nav.menu--main ul li:last-of-type {
   margin-bottom: 0;
 }
 
+input, textarea, label {
+  display: block;
+}
+
 lite-youtube {
   background-color: #000;
   position: relative;
