@@ -7,7 +7,7 @@
     "sass:build": "sass --style=compressed --no-source-map src/assets/scss:dist/assets/css",
     "eleventy:dev": "eleventy --serve",
     "eleventy:build": "eleventy --pathprefix=phil-cheshire-studio/",
-    "start": "run-p eleventy:dev sass:dev",
+    "start": "run-p eleventy:dev",
     "build-ghpages": "run-s sass:build eleventy:build"
   },
   "dependencies": {

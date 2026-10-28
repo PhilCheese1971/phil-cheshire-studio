@@ -22,18 +22,18 @@
     ] %}
     <body>
         <div class="site-container">
-            <header class="header">
-                <div class="column1">
+            <header class="header grid {{ headerClass }}">
+                <div class="col-3">
                     {% homeLogoLink "/" %}
                 </div>
-                <div class="column2">
+                <div class="col-6">
                     {% if page.url == '/' %}
                         {{ headerContent | safe }}
                     {% else %}
                         {% include "main-menu.njk" %}
                     {% endif %}
                 </div>
-                <div class="column3"> 
+                <div class="col-3"> 
                     <nav class="menu menu--global">
                         <ul>
                             {% for item in globalNavItems %}

@@ -1,5 +1,8 @@
 header {
-    margin-bottom: 76px;
+    margin-bottom: 4.75rem;
+    &.secondary {
+        margin-bottom: 3.25rem;
+    }
     img {
         margin-top: 2rem;
     }
