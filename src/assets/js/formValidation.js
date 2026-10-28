@@ -37,10 +37,10 @@ const validate = (e) => {
     const hCaptcha = document.querySelector('textarea[name=h-captcha-response]');
 
     if (!hCaptcha.value) {
+        e.preventDefault();
         document.querySelector('.error--hcaptcha').classList.remove('hide');
     }
 
-    console.log('is it getting down here?')
 
     return true;
 }
