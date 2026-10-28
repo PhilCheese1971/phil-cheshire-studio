@@ -25,7 +25,7 @@
                 <div class="col-6">
                     
                         
-<nav class="menu menu--secondary">
+<nav class="menu menu--main">
     <ul>
         
             
@@ -83,7 +83,24 @@
                 </div>
             </header>
             <main>
-                <section><h1>Talk to me</h1></section>
+                <section><h1>Talk to me</h1>
+<form action="https://api.web3forms.com/submit" method="POST" id="talkToMeForm" novalidate>
+    <input type="hidden" name="access_key" value="43bc6348-5660-4a5e-8eb9-dfcdb6c88c9a">
+    <label for="name">Full name</label>
+    <input type="text" name="name" id="name" required>
+    <div class="error hide">Please provide your name.</div>
+    <label for="email" >Email</label>
+    <input type="email" name="email" id="email" required>
+    <div class="error hide">Please provide a valid email address.</div>
+    <label for="message">What do you want to talk about?</label>
+    <textarea name="message" id="message" required style="width: 200px"></textarea>
+    <div class="error hide">Please let me know what you want to talk about.</div>
+    <div class="h-captcha" data-captcha="true"></div>
+    <div class="error error--hcaptcha hide">Please validate your humanity.</div>
+    <button type="submit" id="submitButton">Send your message</button>
+</form>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script defer src="/assets/js/formValidation.js"></script></section>
             </main>
             <footer>
                 <p>&copy; Phil Cheshire 2026. All rights reserved.</p>

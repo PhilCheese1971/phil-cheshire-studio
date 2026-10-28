@@ -1,0 +1,21 @@
+---
+layout: base.njk
+title: Learn My Way > Websites and Web Apps > PhilCheshire.studio
+headerClass: 'secondary'
+---
+<h1>{{ goodThingsNetwork.fields.caseStudyDetailHeading }}</h1>
+<a href="/websites-and-web-apps/">< back to Websites & web apps</a>
+<h2>{{ goodThingsNetwork.fields.caseStudyDetailProjectType }} . {{ goodThingsNetwork.fields.caseStudyDetailProjectSkills }}</h2>
+<div class="grid">
+    <div class="col-6">
+        {{ goodThingsNetwork.fields.caseStudyDetailContent | richText | safe }}
+    </div>
+    <div class="col-6" style="text-align: right">
+        {% for image in goodThingsNetwork.fields.caseStudyDetailCarouselImages %}
+            <img
+                src="https:{{ image.fields.file.url }}" alt=""
+            >
+        {% endfor %}
+        <a href="https://learning.goodthingsfoundation.org/ai" target="_blank" rel="noreferrer">Visit the AI Gateway ></a>
+    </div>
+</div>

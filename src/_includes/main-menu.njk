@@ -1,17 +1,17 @@
-{% set secondaryNavItems = [
+{% set mainNavLinks = [
     { url: "/websites-and-web-apps/", label: "Websites & web apps" },
     { url: "/video-and-film-editing/", label: "Video & film editing" },
     { url: "/songwriting-and-production/", label: "Songwriting & production" }
 ] %}
-<nav class="menu menu--secondary">
+<nav class="menu menu--main">
     <ul>
-        {% for item in secondaryNavItems %}
-            {% set isCurrent = (page and page.url and page.url == item.url) %}
+        {% for navLink in mainNavLinks %}
+            {% set isCurrent = (page and page.url == navLink.url) %}
             <li>
                 {% if isCurrent %}
-                    <span>{{ item.label }}</span>
+                    <span>{{ navLink.label }}</span>
                 {% else %}
-                    <a href="{{ item.url }}">{{ item.label }}</a>
+                    <a href="{{ navLink.url }}">{{ navLink.label }}</a>
                 {% endif %}
             </li>
         {% endfor %}

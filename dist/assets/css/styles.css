@@ -138,6 +138,10 @@ textarea,
   --color-theme-secondary-menu-background: #F5ECEE;
 }
 
+.hide {
+  display: none;
+}
+
 html {
   background-color: #EEEEEE;
 }
@@ -1198,24 +1202,24 @@ nav.menu--global ul {
 nav.menu--global ul li {
   padding: 0.5rem 0;
 }
-nav.menu--secondary {
+nav.menu--main {
   background-color: var(--color-theme-secondary-menu-background);
   margin-top: -2rem;
   padding-top: 1.25rem;
   padding-bottom: 2.25rem;
   padding: 1.25rem 4.5rem 2.25rem;
 }
-nav.menu--secondary ul {
+nav.menu--main ul {
   list-style: none;
   text-align: center;
   font-size: 1.5rem;
 }
-nav.menu--secondary ul li {
+nav.menu--main ul li {
   display: block;
   margin-bottom: 1rem;
   line-height: 1.46;
 }
-nav.menu--secondary ul li:last-of-type {
+nav.menu--main ul li:last-of-type {
   margin-bottom: 0;
 }
 
