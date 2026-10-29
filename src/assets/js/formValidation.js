@@ -1,6 +1,6 @@
 const submitButton = document.querySelector('#submitButton');
 
-const validate = (e) => {
+const validate = (event) => {
 
     const errorMessages =  document.querySelectorAll('.error');
 
@@ -12,35 +12,34 @@ const validate = (e) => {
 
     formFields.forEach(field => {
         if (!field.value) {
-            e.preventDefault();
-            field.nextElementSibling.classList.remove('hide');
-            field.focus();
-            return false;
+            showError(field, field.nextElementSibling);
         }
     });
 
-    function showError() {
+    function showError(field, fieldError) {
+        preventSubmission(event.defaultPrevented);
+        fieldError.classList.remove('hide');
+        field.focus();
+        return false;
+    }
 
+    function preventSubmission(previouslyPrevented) {
+        if (!previouslyPrevented) {
+            event.preventDefault();
+        }
     }
 
     const emailAddress = document.querySelector('#email');
 
     if (!emailIsValid(emailAddress.value)) {
-        e.preventDefault();
-        if (emailAddress.nextElementSibling.classList.contains('hide')) {
-            emailAddress.nextElementSibling.classList.remove('hide');
-            emailAddress.focus();
-            return false;
-        }
+        showError(emailAddress, emailAddress.nextElementSibling);
     }
 
     const hCaptcha = document.querySelector('textarea[name=h-captcha-response]');
 
     if (!hCaptcha.value) {
-        e.preventDefault();
-        document.querySelector('.error--hcaptcha').classList.remove('hide');
+        showError(hCaptcha, document.querySelector('.error--hcaptcha'));
     }
-
 
     return true;
 }
