@@ -1,0 +1,14 @@
+ul {
+    &.skills-list {
+        li {
+            &:not(:last-child)::after {
+                content: ", ";
+            }
+        }
+    }
+}
+
+.heading-and-skills-list-wrapper {
+    display: flex;
+    justify-content: center;
+}

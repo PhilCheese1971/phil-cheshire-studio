@@ -1,0 +1,25 @@
+---
+layout: base.njk
+eleventyComputed:
+  title: "{{ learnMyWay.fields.caseStudyDetailHeading | replace('&', 'and') | title }} > {{ websitesHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
+---
+<h1>{{ learnMyWay.fields.caseStudyDetailHeading }}</h1>
+<a href="/{{ websitesHeading.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ websitesHeading.fields.heading1Text }}</a>
+{% set caseStudy = learnMyWay %}
+<div class="heading-and-skills-list-wrapper">
+    <h2>{{ learnMyWay.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
+</div>
+<div class="grid">
+    <div class="col-12 col-md-6">
+        {{ learnMyWay.fields.caseStudyDetailContent | toHtml | safe }}
+    </div>
+    <div class="col-12 col-md-6">
+            {% set caseStudyCarousel = learnMyWay %}
+            {% include 'image-carousel.njk' %}
+            {% set caseStudyCarousel = learnMyWay %}
+            {% set link = learnMyWay.fields.caseStudyDetailProjectLink %}
+            {% set linkText = learnMyWay.fields.caseStudyDetailHeading %}
+            {% include 'link-in-new-window.njk' %}
+    </div>
+</div>

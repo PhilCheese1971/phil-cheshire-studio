@@ -16,9 +16,17 @@ body {
 a {
     font-family: 'Kiwi Maru', serif;
     color: var(--color-theme-links);
+    svg {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-left: 0.25rem;
+    }
     &:hover {
         background-color: var(--color-theme-dark-background);
         color: white;
         text-decoration: none;
+        svg {
+            fill: white;
+        }
     }
 }

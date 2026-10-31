@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Phil Cheshire">
-        <meta name="description" content="Phil Cheshire's portfolio site" />
+        <meta name="description" content="Phil Cheshire's portfolio site">
         <title>{{ title }}</title>
         <!-- Fav icons -->
         <!-- <link rel="icon" href="./favicon.ico" /> -->
@@ -13,9 +13,10 @@
         <link rel="preconnect" href="https://gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400&family=Open+Sans&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="/assets/css/styles.css" media="all" />
+        <link rel="stylesheet" href="/assets/css/styles.css" media="all">
+        {% if gallery %}<link rel="stylesheet" href="/photoswipe/photoswipe.css">{% endif %}
     </head>
-    {% set globalNavItems = [
+    {% set tertiaryNavItems = [
         { url: "/about-me/", label: "About me" },
         { url: "/talk-to-me/", label: "Talk to me" },
         { url: "/other-interests/", label: "I also..." }
@@ -36,7 +37,7 @@
                 <div class="col-3"> 
                     <nav class="menu menu--global">
                         <ul>
-                            {% for item in globalNavItems %}
+                            {% for item in tertiaryNavItems %}
                                 {% set isCurrent = (page.url == item.url) %}
                                 <li>
                                     {% if isCurrent %}
@@ -58,5 +59,8 @@
             </footer>
             <!-- <script src="./page.js"></script> -->
         </div>
+        {% if gallery %}
+            <script type="module" src="/assets/js/vendor/gallery.js"></script>
+        {% endif %}
     </body>
 </html>

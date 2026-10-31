@@ -9,13 +9,13 @@ headerContent:
 <nav class="menu menu--home">
     <ul>
         <li>
-            <a class="home-banner home-banner--web" href="/websites-and-web-apps/"><span>Websites & web apps ></span></a>
+            <a class="home-banner home-banner--web" href="/{{ websitesHeading.fields.heading1Text | replace(' ', '-') | replace('&', 'and') | lower }}/"><span>{{ websitesHeading.fields.heading1Text }} &gt;</span></a>
         </li>
         <li>
-            <a class="home-banner home-banner--video" href="/video-and-film-editing/"><span>Video & film editing ></span></a>
+            <a class="home-banner home-banner--video" href="/{{ videoAndFilmHeading.fields.heading1Text | replace(' ', '-') | replace('&', 'and') | lower }}/"><span>{{ videoAndFilmHeading.fields.heading1Text }} &gt;</span></a>
         </li>
         <li>
-            <a class="home-banner home-banner--songwriting" href="/songwriting-and-production/"><span>Songwriting & production ></span></a>
+            <a class="home-banner home-banner--songwriting" href="/{{ songwritingHeading.fields.heading1Text | replace(' ', '-') | replace('&', 'and') | lower }}/"><span>{{ songwritingHeading.fields.heading1Text }} &gt;</span></a>
         </li>
     </ul>
 </nav>

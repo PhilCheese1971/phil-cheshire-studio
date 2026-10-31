@@ -1,6 +1,8 @@
 ---
 layout: base.njk
-title: About Me > PhilCheshire.studio
+eleventyComputed:
+  title: "{{ aboutMe.fields.tertiaryPageHeading | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
 ---
-<h1>About me</h1>
-{{ aboutMe.fields.infoPageContent | richText | safe }}
+<h1>{{ aboutMe.fields.tertiaryPageHeading }}</h1>
+{{ aboutMe.fields.tertiaryPageContent | toHtml | safe }}

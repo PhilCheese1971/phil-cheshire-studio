@@ -1,0 +1,24 @@
+---
+layout: base.njk
+eleventyComputed:
+  title: "{{ aiGateway.fields.caseStudyDetailHeading | replace('&', 'and') | title | replace('Ai', 'AI')  }} > {{ websitesHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
+---
+<h1>{{ aiGateway.fields.caseStudyDetailHeading }}</h1>
+<a href="/{{ websitesHeading.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ websitesHeading.fields.heading1Text }}</a>
+{% set caseStudy = aiGateway %}
+<div class="heading-and-skills-list-wrapper">
+    <h2>{{ aiGateway.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
+</div>
+<div class="grid">
+    <div class="col-12 col-md-6">
+        {{ aiGateway.fields.caseStudyDetailContent | toHtml | safe }}
+    </div>
+    <div class="col-12 col-md-6">
+        {% set caseStudyCarousel = aiGateway %}
+        {% include 'image-carousel.njk' %}
+        {% set link = aiGateway.fields.caseStudyDetailProjectLink %}
+        {% set linkText = "the " + aiGateway.fields.caseStudyDetailHeading %}
+        {% include 'link-in-new-window.njk' %}
+    </div>
+</div>

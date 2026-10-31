@@ -14,7 +14,8 @@
     "@11ty/eleventy": "^3.1.7",
     "@contentful/rich-text-html-renderer": "^17.2.3",
     "@contentful/rich-text-types": "^17.2.7",
-    "del": "^9.0.1"
+    "del": "^9.0.1",
+    "photoswipe": "^5.4.4"
   },
   "allowScripts": {
     "@parcel/watcher@2.6.0": true,

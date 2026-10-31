@@ -1,0 +1,24 @@
+.pswp-gallery {
+    max-width: 70rem; margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  --row-height: 16.5rem;   // try 8rem, 10rem, 14rem and see where the wraps fall
+
+  a {
+    display: block;
+    flex: calc(var(--r) * 100) 1 calc(var(--r) * var(--row-height));
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  // stops the last row stretching to fill the full width
+  &::after {
+    content: "";
+    flex-grow: 1000000;
+  }
+}

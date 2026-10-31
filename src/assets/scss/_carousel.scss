@@ -1,0 +1,62 @@
+ul.case-study-carousel {
+  width: calc(100%);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-style: solid;
+  border-color: var(--color-theme-dark-background);
+  border-width: 4px 52px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  anchor-name: --my-carousel;
+  scroll-behavior: smooth;
+
+  li {
+    list-style-type: none;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+  }
+  &::scroll-button(*) {
+    position: absolute;
+    position-anchor: --my-carousel;
+    border-color: var(--color-theme-links);
+    border: 0;
+    background: none;
+    opacity: 1;
+    cursor: pointer;
+    transition: border-color .3s ease-in-out;
+    &:hover {
+      border-color: white;
+    }
+    &:active {
+      border-color: var(--color-theme-links);
+      translate: 1px 1px;
+    }
+    &:disabled {
+      border-color: var(--color-theme-links);
+      opacity: 0.5;
+      cursor: unset;
+    }
+  }
+  &::scroll-button(left), 
+  &::scroll-button(right) {  
+    display: inline-block;
+    border-left: 4px solid var(--color-theme-links);
+    border-bottom: 4px solid var(--color-theme-links);
+    width: 2.25rem;
+    height: 2.25rem;
+    bottom: calc(anchor(center) - 12px);
+  }
+
+  &::scroll-button(left) {
+    content: "" / "Previous image";
+    transform: rotate(45deg);
+    right: calc(anchor(left) - 55px);
+  }
+
+  &::scroll-button(right) {
+    content: "" / "Next image";
+    transform: rotate(225deg);
+    left: calc(anchor(right) - 55px);
+  }
+}

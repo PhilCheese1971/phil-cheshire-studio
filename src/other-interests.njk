@@ -1,5 +1,26 @@
 ---
 layout: base.njk
-title: Other Interests > PhilCheshire.studio
+gallery: true
+eleventyComputed:
+  title: "{{ otherInterests.fields.tertiaryPageHeading | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
 ---
-<h1>Other interests</h1>
+<h1>{{ otherInterests.fields.tertiaryPageHeading }}</h1>
+{{ otherInterests.fields.tertiaryPageContent | toHtml | safe }}
+<div class="pswp-gallery" id="gallery">
+  {% for image in otherInterests.fields.otherInterestsGallery %}
+    {% set full = image | ctfFull(2000) %}
+    {% set d = image.fields.file.details.image %}
+    {% set ratio = d.width / d.height %}
+   <a href="{{ full.src }}"
+   data-pswp-width="{{ full.width }}"
+   data-pswp-height="{{ full.height }}"
+   style="--r: {{ ratio | round(3) }};"
+   target="_blank">
+      <img src="https:{{ image.fields.file.url }}?w=600&fm=webp&q=75&f=center"
+           alt="{{ image.fields.description or image.fields.title }}"
+           width="{{ d.width }}" height="{{ d.height }}" loading="lazy">
+    </a>
+  {% endfor %}
+</div>
+{{ otherInterests.fields.secondOtherInterest | toHtml | safe }}

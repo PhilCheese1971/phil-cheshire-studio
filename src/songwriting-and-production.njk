@@ -1,5 +1,8 @@
 ---
 layout: base.njk
-title: Songwriting and Production > PhilCheshire.studio
+eleventyComputed:
+  title: "{{ songwritingHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
 ---
-<h1>Songwriting & production</h1>
+<h1>{{ songwritingHeading.fields.heading1Text }}</h1>
+{{ songwritingAndProduction.fields.songwritingTextAndInlineMusic | toHtml | safe }}

@@ -1,0 +1,24 @@
+---
+layout: base.njk
+eleventyComputed:
+  title: "{{ goodThingsNetwork.fields.caseStudyDetailHeading | replace('&', 'and') | title }} > {{ websitesHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
+---
+<h1>{{ goodThingsNetwork.fields.caseStudyDetailHeading }}</h1>
+<a href="/{{ websitesHeading.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ websitesHeading.fields.heading1Text }}</a>
+{% set caseStudy = goodThingsNetwork %}
+<div class="heading-and-skills-list-wrapper">
+    <h2>{{ goodThingsNetwork.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
+</div>
+<div class="grid">
+    <div class="col-12 col-md-6">
+        {{ goodThingsNetwork.fields.caseStudyDetailContent | toHtml | safe }}
+    </div>
+    <div class="col-12 col-md-6">
+        {% set caseStudyCarousel = goodThingsNetwork %}
+        {% include 'image-carousel.njk' %}
+        {% set link = goodThingsNetwork.fields.caseStudyDetailProjectLink %}
+        {% set linkText = "the " + goodThingsNetwork.fields.caseStudyDetailHeading %}
+        {% include 'link-in-new-window.njk' %}
+    </div>
+</div>

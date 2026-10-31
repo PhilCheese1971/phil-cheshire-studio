@@ -1,8 +1,11 @@
 ---
 layout: base.njk
-title: Talk to Me > PhilCheshire.studio
+eleventyComputed:
+  title: "{{ talkToMe.fields.tertiaryPageHeading | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
 ---
-<h1>Talk to me</h1>
+<h1>{{ talkToMe.fields.tertiaryPageHeading }}</h1>
+{{ talkToMe.fields.tertiaryPageContent | toHtml | safe }}
 <form action="https://api.web3forms.com/submit" method="POST" id="talkToMeForm" novalidate>
     <input type="hidden" name="access_key" value="43bc6348-5660-4a5e-8eb9-dfcdb6c88c9a">
     <label for="name">Full name</label>

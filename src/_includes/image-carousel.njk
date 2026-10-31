@@ -1,0 +1,8 @@
+
+<ul class="case-study-carousel">
+    {% for image in caseStudyCarousel.fields.caseStudyDetailCarouselImages %}
+        <li>
+            <img src="https:{{ image.fields.file.url }}?fm=webp" alt="">
+        </li>
+    {% endfor %}
+</ul>

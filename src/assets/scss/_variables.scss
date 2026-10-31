@@ -3,6 +3,7 @@ $home-h1-color: #918289;
 $link-color: #D90368;
 $dark-background: #291720;
 $secondary-menu-background: #F5ECEE;
+$heading-font: 'Kiwi Maru', serif;
 
 :root {
   --color-theme-site-container-background: #{$container-background-color};
@@ -10,4 +11,5 @@ $secondary-menu-background: #F5ECEE;
   --color-theme-links: #{$link-color};
   --color-theme-dark-background: #{$dark-background};
   --color-theme-secondary-menu-background: #{$secondary-menu-background};
+  --font-theme-heading: #{$heading-font};
 }

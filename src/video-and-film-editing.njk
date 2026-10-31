@@ -1,8 +1,10 @@
 ---
 layout: base.njk
-title: Video and Film Editing > PhilCheshire.studio
+eleventyComputed:
+  title: "{{ videoAndFilmHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+headerClass: 'secondary'
 ---
-<h1>Video & film editing</h1>
+<h1>{{ videoAndFilmHeading.fields.heading1Text }}</h1>
 <div class="grid">
   {% for panel in videoAndFilmPanels %}
     <article class="col-12 col-md-6">
@@ -13,7 +15,12 @@ title: Video and Film Editing > PhilCheshire.studio
         <h2>{{ panel.fields.filmAndVideoHeading }}</h2>
         <p>{{ panel.fields.filmAndVideoDescription }}</p>
         <hr>
-        Editing {{ panel.fields.filmAndVideoEditingList }}
+        <span>Editing: </span>
+        <ul class="skills-list display-inline">
+          {% for skill in panel.fields.filmAndVideoEditingList %}
+            <li class="display-inline">{{ skill | trim }}</li>
+          {% endfor %}
+        </ul>
     </article>
   {% else %}
     <p>No panels found.</p>
