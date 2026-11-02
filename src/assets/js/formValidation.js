@@ -1,6 +1,25 @@
 const submitButton = document.querySelector('#submitButton');
 
-const validate = (event) => {
+const labelCaptchaFields = () => {
+  const fields = document.querySelectorAll(
+    'textarea[name="h-captcha-response"]'
+  );
+  fields.forEach((ta) => {
+    if (!ta.hasAttribute('aria-label')) {
+      ta.setAttribute('aria-label', 'hCaptcha response');
+    }
+  });
+  return fields.length > 0;
+};
+
+if (!labelCaptchaFields()) {
+  const observer = new MutationObserver(() => {
+    if (labelCaptchaFields()) observer.disconnect();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+const validateForm = (event) => {
 
     const errorMessages =  document.querySelectorAll('.error');
 
@@ -48,4 +67,4 @@ const emailIsValid = email => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-submitButton.addEventListener('click', validate);
+submitButton.addEventListener('click', validateForm);

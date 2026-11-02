@@ -1,3 +1,69 @@
+@use "functions" as *;
+
+form {
+  max-width: rem-calc(424);
+  margin: 0 auto;
+  margin-bottom: 52px;
+}
+
 input, textarea, label {
   display: block;
 }
+input, textarea {
+  width: 100%;
+}
+
+label, span.form-label {
+  font-family: var(--font-theme-family-serif);
+  font-size: rem-calc(20);
+  margin-bottom: 1rem;
+}
+
+input {
+  &[type=text], &[type=email] {
+    font-size: var(--font-theme-size-body);
+    font-family: var(--font-theme-family-sans-serif);
+    padding: 0.5rem;
+    border: 1px solid var(--color-theme-darkest);
+  }
+}
+
+button {
+  &#submitButton {
+    font-size: var(--font-theme-size-body);
+    background-color: var(--color-theme-primary);
+    font-family: var(--font-theme-family-serif);
+    color: var(--color-theme-lightest);
+    line-height: initial;
+    border: none;
+    padding: 0.75rem 1rem;
+    &:hover {
+      background-color: var(--color-theme-darkest);
+    }
+  }
+}
+
+.form {
+  &__item-wrapper {
+    position: relative;
+    height: rem-calc(134);
+    &--medium {
+      height: rem-calc(168);
+    }
+    &--large {
+      height: rem-calc(238);
+    }
+    .error {
+      position: absolute;
+      bottom: 12px;
+      color: var(--color-theme-danger);
+      font-family: var(--font-theme-family-sans-serif);
+      font-size: var(--font-theme-size-form-error);
+    }
+  }
+}
+
+textarea {
+  height: rem-calc(148);
+}
+

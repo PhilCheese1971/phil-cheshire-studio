@@ -6,7 +6,7 @@ nav {
       li {
         span {
           font-family: 'Kiwi Maru', serif;
-          color: var(--color-theme-dark-background);
+          color: var(--color-theme-darkest);
         }
       }
     }
@@ -39,7 +39,7 @@ nav {
               display: block;
               padding: 0.65rem 1rem 0.75rem 1.25rem;
               font-size: 2.25rem;
-              background-color: var(--color-theme-dark-background);
+              background-color: var(--color-theme-darkest);
               transition: 0.3s background-color ease;
               color: white;
             }
@@ -55,7 +55,7 @@ nav {
               }
               &:hover {
                 span {
-                  background-color: var(--color-theme-links);
+                  background-color: var(--color-theme-primary);
                 }
               }
             }
@@ -72,7 +72,7 @@ nav {
       }
     }
     &--main {
-      background-color: var(--color-theme-secondary-menu-background);
+      background-color: var(--color-theme-primary-tint);
       margin-top: -2rem;
       padding-top: 1.25rem;
       padding-bottom: 2.25rem;

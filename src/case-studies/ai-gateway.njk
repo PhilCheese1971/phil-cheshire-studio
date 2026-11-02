@@ -1,14 +1,18 @@
 ---
 layout: base.njk
 eleventyComputed:
-  title: "{{ aiGateway.fields.caseStudyDetailHeading | replace('&', 'and') | title | replace('Ai', 'AI')  }} > {{ websitesHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+  title: "{{ aiGateway.fields.caseStudyDetailHeading | replace('&', 'and') | title | replace('Ai', 'AI')  }} > {{ websitesHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
 headerClass: 'secondary'
 ---
-<h1>{{ aiGateway.fields.caseStudyDetailHeading }}</h1>
-<a href="/{{ websitesHeading.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ websitesHeading.fields.heading1Text }}</a>
+<div class="heading-and-link-wrapper">
+    <a href="/{{ websitesHeadingAndBlurb.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ websitesHeadingAndBlurb.fields.heading1Text }}</a>
+    <h1>{{ aiGateway.fields.caseStudyDetailHeading }}</h1>
+</div>
+
 {% set caseStudy = aiGateway %}
 <div class="heading-and-skills-list-wrapper">
-    <h2>{{ aiGateway.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
+    <h2>{{ aiGateway.fields.caseStudyDetailProjectType }}</h2>
+    {% include 'web-detail-skills-list.njk' %}
 </div>
 <div class="grid">
     <div class="col-12 col-md-6">
@@ -17,8 +21,8 @@ headerClass: 'secondary'
     <div class="col-12 col-md-6">
         {% set caseStudyCarousel = aiGateway %}
         {% include 'image-carousel.njk' %}
-        {% set link = aiGateway.fields.caseStudyDetailProjectLink %}
-        {% set linkText = "the " + aiGateway.fields.caseStudyDetailHeading %}
-        {% include 'link-in-new-window.njk' %}
+        {% set link =  aiGateway.fields.caseStudyDetailProjectLink %}
+        {% set linkText = ' the ' + aiGateway.fields.caseStudyDetailHeading %}
+        {% include 'link-in-new-window.njk' %}    
     </div>
 </div>

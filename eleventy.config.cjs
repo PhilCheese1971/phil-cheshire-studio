@@ -76,15 +76,16 @@ module.exports = function (eleventyConfig) {
     }
     return `<a href="${url}" aria-label="Go to homepage"><img src="/assets/images/logo.svg" alt="Site logo"></a>`;
   });
+  
   const inlineSvg = (name) =>
     fs.readFileSync(path.join("src/assets/images/icons", `${name}.svg`), "utf8");
 
-  eleventyConfig.addShortcode("svg", inlineSvg);
-
-  const externalIcon = () =>
-  inlineSvg("open_in_new_24dp")
+  const addIconToLink = (iconName, className = "") =>
+  inlineSvg(iconName)
     .replace(/fill="#[0-9a-f]{3,8}"/gi, 'fill="currentColor"')
-    .replace("<svg", '<svg class="external-icon" aria-hidden="true" focusable="false"');
+    .replace("<svg", `<svg class="${className}" aria-hidden="true" focusable="false"`);
+
+  eleventyConfig.addShortcode("svg", addIconToLink);
 
   eleventyConfig.addFilter("ctfFull", (asset, maxW = 2000) => {
     const { width, height } = asset.fields.file.details.image;
@@ -99,52 +100,52 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "node_modules/photoswipe/dist": "photoswipe" });
 
   const audioEmbed = (value) => {
-  if (!value) return "";
-  const input = String(value).trim();
+    if (!value) return "";
+    const input = String(value).trim();
 
-  // set to 116 for SoundCloud's standard player - just about works, same size as Bandcamp one
-  const SOUNDCLOUD_HEIGHT = 116;
+    // set to 116 for SoundCloud's standard player - just about works, same size as Bandcamp one
+    const SOUNDCLOUD_HEIGHT = 116;
 
-  const scParams = [
-    "hide_related=true",
-    "show_comments=false",
-    "show_user=false",
-    "show_reposts=false",
-    "show_playcount=false",
-    "show_teaser=false",
-    "sharing=true",
-    "buying=false",
-    "liking=false",
-    "download=false",
-    "visual=false",
-  ].join("&amp;");
+    const scParams = [
+      "hide_related=true",
+      "show_comments=false",
+      "show_user=false",
+      "show_reposts=false",
+      "show_playcount=false",
+      "show_teaser=false",
+      "sharing=true",
+      "buying=false",
+      "liking=false",
+      "download=false",
+      "visual=false",
+    ].join("&amp;");
 
-  const build = (src, title, height) =>
-    `<iframe title="${title}" src="${src}" style="margin-bottom: 2.25rem;max-width: 700px;display:block;border:0;width:100%;height:${height}px;" loading="lazy" allow="autoplay"></iframe>`;
+    const build = (src, title, height) =>
+      `<iframe title="${title}" src="${src}" style="margin-bottom: 2.25rem;max-width: 700px;display:block;border:0;width:100%;height:${height}px;" loading="lazy" allow="autoplay"></iframe>`;
 
-  // find the src inside the pasted iframe code
-  const rawSrc = (input.match(/<iframe[^>]*\ssrc=["']([^"']+)["']/i) || [])[1];
-  if (!rawSrc) return "";
-  const src = rawSrc.replace(/&amp;/g, "&");
+    // find the src inside the pasted iframe code
+    const rawSrc = (input.match(/<iframe[^>]*\ssrc=["']([^"']+)["']/i) || [])[1];
+    if (!rawSrc) return "";
+    const src = rawSrc.replace(/&amp;/g, "&");
 
-  // Bandcamp: keep their src, use the height from the pasted code
-  if (src.startsWith("https://bandcamp.com/EmbeddedPlayer/")) {
-    const height =
-      (input.match(/height:\s*(\d+)px/i) || input.match(/height=["']?(\d+)/i) || [])[1] || 120;
-    return build(src, "Bandcamp player", height);
-  }
+    // Bandcamp: keep their src, use the height from the pasted code
+    if (src.startsWith("https://bandcamp.com/EmbeddedPlayer/")) {
+      const height =
+        (input.match(/height:\s*(\d+)px/i) || input.match(/height=["']?(\d+)/i) || [])[1] || 120;
+      return build(src, "Bandcamp player", height);
+    }
 
-  // SoundCloud: pull out the track URL and rebuild with our own parameters
-  if (src.startsWith("https://w.soundcloud.com/player/")) {
-    const trackUrl = new URL(src).searchParams.get("url");
-    if (!trackUrl) return "";
-    const rebuilt =
-      "https://w.soundcloud.com/player/?url=" + encodeURIComponent(trackUrl) + "&amp;" + scParams;
-    return build(rebuilt, "SoundCloud player", SOUNDCLOUD_HEIGHT);
-  }
+    // SoundCloud: pull out the track URL and rebuild with our own parameters
+    if (src.startsWith("https://w.soundcloud.com/player/")) {
+      const trackUrl = new URL(src).searchParams.get("url");
+      if (!trackUrl) return "";
+      const rebuilt =
+        "https://w.soundcloud.com/player/?url=" + encodeURIComponent(trackUrl) + "&amp;" + scParams;
+      return build(rebuilt, "SoundCloud player", SOUNDCLOUD_HEIGHT);
+    }
 
-  return ""; // not a recognised player: output nothing
-};
+    return ""; // not a recognised player: output nothing
+  };
 
   eleventyConfig.addFilter("toHtml", function (richTextField) {
     if (!richTextField) return "";
@@ -177,14 +178,19 @@ module.exports = function (eleventyConfig) {
           return 'Name not found';
         },
 
+        [BLOCKS.PARAGRAPH]: (node, next) => {
+          const isEmpty = node.content.every(
+            (child) => child.nodeType === "text" && child.value.trim() === ""
+          );
+          return isEmpty ? "" : `<p>${next(node.content)}</p>`;
+        },
+
         [INLINES.HYPERLINK]: (node, next) => {
           const uri = node.data.uri;
-  const internal = isInternalLink(uri);
-  const attrs = internal ? "" : 'target="_blank" rel="noopener noreferrer"';
-  const icon = internal
-    ? ""
-    : `${externalIcon()}`;
-  return `<a href="${uri}"${attrs} aria-label="${next(node.content)} - opens in a new window or tab">${next(node.content)}${icon}</a>`;
+          const internalLink = isInternalLink(uri);
+          const attrs = internalLink ? "" : `target="_blank" rel="noopener noreferrer" aria-label="${next(node.content)} - opens in a new window or tab"`;
+          const getsIcon = internalLink ? "" : `${addIconToLink("open_in_new_24dp", "external-link-icon")}`
+          return `<a href="${uri}"${attrs}>${next(node.content)}${getsIcon}</a>`;
         },
       }
     };

@@ -1,15 +1,57 @@
-$container-background-color: #F6F6F4;
-$home-h1-color: #918289;
-$link-color: #D90368;
-$dark-background: #291720;
-$secondary-menu-background: #F5ECEE;
-$heading-font: 'Kiwi Maru', serif;
+@use "functions" as *;
 
 :root {
-  --color-theme-site-container-background: #{$container-background-color};
-  --color-theme-h1-home: #{$home-h1-color};
-  --color-theme-links: #{$link-color};
-  --color-theme-dark-background: #{$dark-background};
-  --color-theme-secondary-menu-background: #{$secondary-menu-background};
-  --font-theme-heading: #{$heading-font};
+  // Colors
+  --color-theme-site-background: #EEEEEE;
+  --color-theme-site-container-background: #F6F6F4;
+  --color-theme-lightest: #ffffff;
+  --color-theme-primary: #D90368;
+  --color-theme-secondary: #FB8B24;
+  --color-theme-secondary-light: #664047;
+
+  --color-theme-primary-tint: #F5ECEE;
+  --color-theme-darkest: #291720;
+  --color-theme-darkest-light: #744950;
+  --color-theme-danger: #EB0105;
+  --color-theme-neutral: #D4D4D4;
+
+  // Fonts
+  --font-theme-family-serif: 'Kiwi Maru', Georgia, Courier New, serif;
+  --font-theme-family-sans-serif: 'Open Sans', Arial, Helvetica, sans-serif;
+  --font-theme-family-slab-serif: "Roboto Slab", Georgia, Courier New, serif;
+  --font-theme-size-body: #{rem-calc(18)};
+  --font-theme-size-form-error: #{rem-calc(16)};
+  --font-theme-size-body-larger: #{rem-calc(20)};
+  --font-theme-size-body-largest: #{rem-calc(22)};
+
+  // Units
+  --base-unit-1x: 16;
+  --base-unit-1-5x: #{spacing(1.5)};
+  --base-unit-1-75x: #{spacing(1.75)};
+  --base-unit-2x: #{spacing(2)};
+
+  // Container sizes
+  --fluid-min-vw: 412;
+  --fluid-max-vw: 1440;
+}
+
+// Headings
+h1 {
+  --min: 36;
+  --max: 40;
+}
+
+h2 {
+  --min: 24;
+  --max: 32;
+}
+
+h3 {
+  --min: 20;
+  --max: 28;
+}
+
+h1, h2, h3 {
+  --slope: calc((var(--max) - var(--min)) / (var(--fluid-max-vw) - var(--fluid-min-vw)));
+  --intercept: calc(var(--min) - var(--slope) * var(--fluid-min-vw));
 }

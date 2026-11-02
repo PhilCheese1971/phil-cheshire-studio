@@ -1,28 +1,33 @@
 ---
 layout: base.njk
 eleventyComputed:
-  title: "{{ videoAndFilmHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+  title: "{{ videoAndFilmHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
 headerClass: 'secondary'
 ---
-<h1>{{ videoAndFilmHeading.fields.heading1Text }}</h1>
-<div class="grid">
+<h1>{{ videoAndFilmHeadingAndBlurb.fields.heading1Text }}</h1>
+{{ videoAndFilmHeadingAndBlurb.fields.topParagraph | toHtml | safe }}
+<ul class="grid video-banners">
   {% for panel in videoAndFilmPanels %}
-    <article class="col-12 col-md-6">
-        <span class="film-tag">{{ panel.fields.filmAndVideoTag }}</span>
-        {% set videoTitle = panel.fields.filmAndVideoHeading %}
-        {% set videoId = panel.fields.youTubeReference %}
-        {% include 'youtube.njk' %}
-        <h2>{{ panel.fields.filmAndVideoHeading }}</h2>
-        <p>{{ panel.fields.filmAndVideoDescription }}</p>
-        <hr>
-        <span>Editing: </span>
-        <ul class="skills-list display-inline">
-          {% for skill in panel.fields.filmAndVideoEditingList %}
-            <li class="display-inline">{{ skill | trim }}</li>
-          {% endfor %}
-        </ul>
-    </article>
+        <li class="col-12 col-md-6">
+          <span class="film-tag">{{ panel.fields.filmAndVideoTag }}</span>
+          <div class="video-banners__inner">
+            {% set videoTitle = panel.fields.filmAndVideoHeading %}
+            {% set videoId = panel.fields.youTubeReference %}
+            {% include 'youtube.njk' %}
+            <div class="video-banners__inner--text">
+              <h2>{{ panel.fields.filmAndVideoHeading }}</h2>
+              <p>{{ panel.fields.filmAndVideoDescription }}</p>
+              <hr>
+              <span>Editing: </span>
+              <ul class="skills-list display-inline">
+                {% for skill in panel.fields.filmAndVideoEditingList %}
+                  <li class="display-inline">{{ skill | trim }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </li>
   {% else %}
-    <p>No panels found.</p>
+    <li>No video panels found.</li>
   {% endfor %}
-</div>
+</ul>

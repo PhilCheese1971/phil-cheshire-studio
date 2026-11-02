@@ -17,9 +17,18 @@
         {% if gallery %}<link rel="stylesheet" href="/photoswipe/photoswipe.css">{% endif %}
     </head>
     {% set tertiaryNavItems = [
-        { url: "/about-me/", label: "About me" },
-        { url: "/talk-to-me/", label: "Talk to me" },
-        { url: "/other-interests/", label: "I also..." }
+        {
+            url: "/" ~ (aboutMe.fields.tertiaryPageHeading | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+            label: aboutMe.fields.tertiaryPageHeading
+        },
+        {
+            url: "/" ~ (talkToMe.fields.tertiaryPageHeading | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+            label: talkToMe.fields.tertiaryPageHeading
+        },
+        {
+            url: "/" ~ (otherInterests.fields.tertiaryPageHeading | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+            label: otherInterests.fields.tertiaryPageHeading
+        }
     ] %}
     <body>
         <div class="site-container">
@@ -37,13 +46,13 @@
                 <div class="col-3"> 
                     <nav class="menu menu--global">
                         <ul>
-                            {% for item in tertiaryNavItems %}
-                                {% set isCurrent = (page.url == item.url) %}
+                            {% for navItem in tertiaryNavItems %}
+                                {% set isCurrent = (page.url == navItem.url) %}
                                 <li>
                                     {% if isCurrent %}
-                                        <span>{{ item.label }}</span>
+                                        <span aria-current="page">{{ navItem.label }}</span>
                                     {% else %}
-                                        <a href="{{ item.url }}">{{ item.label }}</a>
+                                        <a href="{{ navItem.url | url }}">{{ navItem.label }}</a>
                                     {% endif %}
                                 </li>
                             {% endfor %}

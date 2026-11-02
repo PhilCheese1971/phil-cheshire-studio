@@ -14,7 +14,7 @@ class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
         this.videoId = this.getAttribute('videoid');
 
-        let playBtnEl = this.querySelector('.lyt-playbtn,.lty-playbtn');
+        let playBtnEl = this.querySelector('.lty-playbtn,.lty-playbtn');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
         this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute('playlabel') || 'Play';
 
@@ -35,12 +35,12 @@ class LiteYTEmbed extends HTMLElement {
             playBtnEl = document.createElement('button');
             playBtnEl.type = 'button';
             // Include the mispelled 'lty-' in case it's still being used. https://github.com/paulirish/lite-youtube-embed/issues/65
-            playBtnEl.classList.add('lyt-playbtn', 'lty-playbtn');
+            playBtnEl.classList.add('lty-playbtn', 'lty-playbtn');
             this.append(playBtnEl);
         }
         if (!playBtnEl.textContent) {
             const playBtnLabelEl = document.createElement('span');
-            playBtnLabelEl.className = 'lyt-visually-hidden';
+            playBtnLabelEl.className = 'lty-visually-hidden';
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
@@ -179,8 +179,8 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     async activate(){
-        if (this.classList.contains('lyt-activated')) return;
-        this.classList.add('lyt-activated');
+        if (this.classList.contains('lty-activated')) return;
+        this.classList.add('lty-activated');
 
         if (this.needsYTApi) {
             return this.addYTPlayerIframe(this.getParams());

@@ -1,22 +1,23 @@
 ---
 layout: base.njk
 eleventyComputed:
-  title: "{{ websitesHeading.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
+  title: "{{ websitesHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
 headerClass: 'secondary'
 ---
-<h1>{{ websitesHeading.fields.heading1Text }}</h1>
-{% for banner in caseStudyBanners %}
-  <article class="grid">
-      <div class="col-12 col-md-6">
-        {% if banner.fields.projectPhoto %}
-            <img src="{{ banner.fields.projectPhoto.fields.file.url }}?fm=webp" alt="{{ banner.fields.projectPhoto.fields.description }}">
-        {% endif %}
-      </div>
-      <div class="col-12 col-md-6">
-        {{ banner.fields.projectInfoTable | toHtml | safe }}
-        <a href="/case-studies/{{ banner.fields.projectTitle | replace(' ', '-') | lower }}">Read more about {{ banner.fields.projectTitle }} ></a>
-      </div>
-  </article>
-{% else %}
-  <p>No banners found.</p>
-{% endfor %}
+<h1>{{ websitesHeadingAndBlurb.fields.heading1Text }}</h1>
+{{ websitesHeadingAndBlurb.fields.topParagraph | toHtml | safe }}
+<ul class="web-banners">
+  {% for banner in caseStudyBanners %}
+      <li class="display-flex">
+          {% if banner.fields.projectPhoto %}
+              <img src="{{ banner.fields.projectPhoto.fields.file.url }}?fm=webp" alt="{{ banner.fields.projectPhoto.fields.description }}">
+          {% endif %}
+          <div class="table-and-link">
+            {{ banner.fields.projectInfoTable | toHtml | safe }}
+            <a href="/case-studies/{{ banner.fields.projectTitle | replace(' ', '-') | lower }}">Read more about {{ banner.fields.projectTitle }} ></a>
+          </div>
+      </li>
+  {% else %}
+    <li>No banners found.</li>
+  {% endfor %}
+</ul>

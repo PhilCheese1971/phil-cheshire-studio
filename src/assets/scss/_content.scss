@@ -1,3 +1,5 @@
+@use "functions" as *;
+
 ul {
     &.skills-list {
         li {
@@ -8,7 +10,155 @@ ul {
     }
 }
 
+.heading-and-link-wrapper {
+    vertical-align:middle;
+    position: relative;
+    h1 {
+        margin-bottom: spacing(0.75);
+    }
+    a {
+        position: absolute;
+        bottom: 7px;
+    }
+}
+
 .heading-and-skills-list-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: rem-calc(68);
+    h2 {
+        margin-bottom:0;
+        &:after {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            margin: 8px;
+            height: 4px;
+            width: 4px;
+            background-color: var(--color-theme-secondary);
+        }
+    }
+    h2, ul {
+        line-height: 1;
+        font-size: var(--font-theme-size-body-largest);
+        color: var(--color-theme-darkest-light);
+    }
+    ul {
+        font-family: var(--font-theme-family-serif)
+    }
+}
+
+.pswp-gallery {
+    margin-bottom: rem-calc(64);
+}
+
+.web-banners {
+    max-width: rem-calc(860);
+    margin: 0 auto;
+    .grid {
+        gap: 0;
+    }
+    li {
+        background-color: var(--color-theme-darkest);
+        margin-bottom: rem-calc(48);
+        img {
+            border: 2px solid var(--color-theme-darkest);
+            max-width: rem-calc(396);
+        }
+        .table-and-link {
+            padding-left: spacing(1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            table {
+                margin-top: 2rem;
+                tr {
+                    td {
+                        &:first-of-type {
+                            padding-top: 4px;
+                            padding-bottom: spacing(1.25);
+                            font-family: var(--font-theme-family-sans-serif);
+                            color: var(--color-theme-neutral);
+                            padding-right: spacing(2.25);
+                            text-wrap: nowrap;
+                            vertical-align: top;
+                        }
+                        &:last-of-type {
+                            font-family: var(--font-theme-family-serif);
+                            color: var(--color-theme-secondary);
+                            font-size: var(--font-theme-size-body-larger);
+                            vertical-align: top;
+                        }
+                    }
+                }
+            }
+            a {
+                display: inline-block;
+                color: var(--color-theme-lightest);
+                font-size: var(--font-theme-size-body);
+                margin-bottom: spacing(1.5)
+                
+            }
+        }
+        
+    }
+}
+
+.video-banners {
+    max-width: rem-calc(1164);
+    margin: 0 auto;
+    margin-bottom: rem-calc(64);
+    &__inner {
+        background-color: var(--color-theme-darkest);
+        &--text {
+            padding: spacing(1) spacing(1.75) spacing(1.5);
+        }
+    }
+    & > li {
+        position: relative;
+        &::marker {
+            content:""
+        }
+        .film-tag {
+            position: absolute;
+            display: block;
+            z-index: 9999999;
+            top: 0;
+            right: 0;
+            color: var(--color-theme-darkest);
+            background-color: var(--color-theme-secondary);
+            padding: 10px 12px;
+            font-family: var(--font-theme-family-serif);
+            font-weight: 500;
+        }
+        h2 {
+            text-align: left;
+            margin-bottom: 0.25rem;
+            line-height: 1.46;
+        }
+        h2, p, span, .skills-list {
+            color: var(--color-theme-secondary);
+        }
+        p {
+            font-family: var(--font-theme-family-serif);
+            font-size: var(--font-theme-size-body);
+            margin-bottom: spacing(1.25);
+        }
+        hr {
+            height: 1px;
+            color: var(--color-theme-secondary-light);
+            background: var(--color-theme-secondary-light);
+            font-size: 0;
+            border: 0;
+            margin-bottom: spacing(1);
+
+        }
+        ul {
+            li {
+                color: var(--color-theme-lightest);
+                line-height: 1.4375;
+            }
+        }
+    }
 }

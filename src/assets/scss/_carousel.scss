@@ -1,10 +1,12 @@
+@use "functions" as *;
+
 ul.case-study-carousel {
-  width: calc(100%);
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 0;
   border-style: solid;
-  border-color: var(--color-theme-dark-background);
+  border-color: var(--color-theme-darkest);
   border-width: 4px 52px;
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
@@ -19,7 +21,7 @@ ul.case-study-carousel {
   &::scroll-button(*) {
     position: absolute;
     position-anchor: --my-carousel;
-    border-color: var(--color-theme-links);
+    border-color: var(--color-theme-primary);
     border: 0;
     background: none;
     opacity: 1;
@@ -29,20 +31,21 @@ ul.case-study-carousel {
       border-color: white;
     }
     &:active {
-      border-color: var(--color-theme-links);
+      border-color: var(--color-theme-primary);
       translate: 1px 1px;
     }
     &:disabled {
-      border-color: var(--color-theme-links);
+      border-color: var(--color-theme-primary);
       opacity: 0.5;
       cursor: unset;
+      translate: unset;
     }
   }
   &::scroll-button(left), 
   &::scroll-button(right) {  
     display: inline-block;
-    border-left: 4px solid var(--color-theme-links);
-    border-bottom: 4px solid var(--color-theme-links);
+    border-left: 4px solid var(--color-theme-primary);
+    border-bottom: 4px solid var(--color-theme-primary);
     width: 2.25rem;
     height: 2.25rem;
     bottom: calc(anchor(center) - 12px);
@@ -58,5 +61,14 @@ ul.case-study-carousel {
     content: "" / "Next image";
     transform: rotate(225deg);
     left: calc(anchor(right) - 55px);
+  }
+  + a {
+    display: block;
+    text-align: center;
+    margin-top: spacing(1.25);
+    font-size: var(--font-theme-size-body);
+    svg {
+      margin-bottom: -1px;
+    }
   }
 }

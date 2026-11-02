@@ -1,7 +1,16 @@
 {% set mainNavLinks = [
-    { url: "/websites-and-web-apps/", label: "Websites & web apps" },
-    { url: "/video-and-film-editing/", label: "Video & film editing" },
-    { url: "/songwriting-and-production/", label: "Songwriting & production" }
+    {
+        url: "/" ~ (websitesHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+        label: websitesHeadingAndBlurb.fields.heading1Text
+    },
+    {
+        url: "/" ~ (videoAndFilmHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+        label: videoAndFilmHeadingAndBlurb.fields.heading1Text
+    },
+    {
+        url: "/" ~ (songwritingHeading.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+        label: songwritingHeading.fields.heading1Text
+    }
 ] %}
 <nav class="menu menu--main">
     <ul>
@@ -9,9 +18,9 @@
             {% set isCurrent = (page and page.url == navLink.url) %}
             <li>
                 {% if isCurrent %}
-                    <span>{{ navLink.label }}</span>
+                    <span aria-current="page">{{ navLink.label }}</span>
                 {% else %}
-                    <a href="{{ navLink.url }}">{{ navLink.label }}</a>
+                    <a href="{{ navLink.url | url }}">{{ navLink.label }}</a>
                 {% endif %}
             </li>
         {% endfor %}

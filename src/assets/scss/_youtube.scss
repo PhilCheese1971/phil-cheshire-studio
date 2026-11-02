@@ -52,7 +52,7 @@ lite-youtube > iframe {
 }
 
 /* play button */
-lite-youtube > .lyt-playbtn {
+lite-youtube > .lty-playbtn {
     display: block;
     /* Make the button element cover the whole area for a large hover/click target… */
     width: 100%;
@@ -64,22 +64,22 @@ lite-youtube > .lyt-playbtn {
     position: absolute;
     cursor: pointer;
     z-index: 1;
-    filter: grayscale(100%);
+   
     transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
     border: 0;
 }
 
-lite-youtube:hover > .lyt-playbtn,
-lite-youtube .lyt-playbtn:focus {
+lite-youtube:hover > .lty-playbtn,
+lite-youtube .lty-playbtn:focus {
     filter: none;
 }
 
 /* Post-click styles */
-lite-youtube.lyt-activated {
+lite-youtube.lty-activated {
     cursor: unset;
 }
-lite-youtube.lyt-activated::before,
-lite-youtube.lyt-activated > .lyt-playbtn {
+lite-youtube.lty-activated::before,
+lite-youtube.lty-activated > .lty-playbtn {
     opacity: 0;
     pointer-events: none;
 }
