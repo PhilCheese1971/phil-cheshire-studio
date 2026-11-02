@@ -20,7 +20,7 @@
                 {% if isCurrent %}
                     <span aria-current="page">{{ navLink.label }}</span>
                 {% else %}
-                    <a href="{{ navLink.url | url }}">{{ navLink.label }}</a>
+                    <a href="{{ navLink.url }}">{{ navLink.label }}</a>
                 {% endif %}
             </li>
         {% endfor %}

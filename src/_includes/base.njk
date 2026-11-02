@@ -52,7 +52,7 @@
                                     {% if isCurrent %}
                                         <span aria-current="page">{{ navItem.label }}</span>
                                     {% else %}
-                                        <a href="{{ navItem.url | url }}">{{ navItem.label }}</a>
+                                        <a href="{{ navItem.url }}">{{ navItem.label }}</a>
                                     {% endif %}
                                 </li>
                             {% endfor %}
