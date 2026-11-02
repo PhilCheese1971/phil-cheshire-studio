@@ -1233,7 +1233,7 @@ p {
 
 main p {
   font-size: var(--font-theme-size-body);
-  max-width: 39.25rem;
+  max-width: 56.25rem;
   margin: 0 auto;
 }
 main p:first-of-type {
