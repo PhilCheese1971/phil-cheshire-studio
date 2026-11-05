@@ -1,0 +1,27 @@
+@use "simple-grid" as *;
+
+.menu-button, .close-button {
+  color: var(--color-theme-primary);
+  border: none;
+  
+  transition: color .3s ease-in-out;
+  &:hover {
+    color: var(--color-theme-darkest)
+  }
+}
+
+.close-button {
+  position: absolute;
+  right: 1.5rem;
+  top: 2.25rem;
+  background-color: var(--color-theme-primary-light);
+}
+
+.menu-button {
+  display: block;
+  background-color: transparent;
+  @include breakpoint(medium) {
+      display: none;
+  }
+  align-self: flex-start;
+}

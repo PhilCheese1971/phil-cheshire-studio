@@ -1,3 +1,5 @@
+@use "simple-grid" as *;
+@use "functions" as *;
 
 nav {
   &.menu {
@@ -38,10 +40,10 @@ nav {
             span {
               display: block;
               padding: 0.65rem 1rem 0.75rem 1.25rem;
-              font-size: 2.25rem;
               background-color: var(--color-theme-darkest);
               transition: 0.3s background-color ease;
               color: white;
+              max-width: 80%;
             }
             &.home-banner {
               &--web {
@@ -68,15 +70,17 @@ nav {
         font-size: 1.25rem;
         li {
           padding: 0.5rem 0;
+          text-wrap: nowrap;
+          &:first-of-type {
+            padding-top: 0;
+          }
         }
       }
     }
     &--main {
-      background-color: var(--color-theme-primary-tint);
-      margin-top: -2rem;
-      padding-top: 1.25rem;
-      padding-bottom: 2.25rem;
-      padding: 2.25rem 4.5rem;
+      background-color: var(--color-theme-primary-light);
+      margin: -4rem 20px 0 20px; 
+      padding: 2rem 4.5rem;
       ul {
         list-style: none;
         text-align: center;
@@ -86,9 +90,26 @@ nav {
           margin-bottom: 1.5rem;
           line-height: 1.46;
           &:last-of-type {
-            margin-bottom:0;
+            margin-bottom: 0;
           }
         }
+      }
+      &--mobile {
+        margin: 0;
+        margin-top: rem-calc(172);
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    &--mobile {
+      ul {
+        text-align: center;
+      }
+    }
+    &--main--desktop-tablet, &--global--desktop-tablet {
+      display: none;
+      @include breakpoint(medium) {
+          display: block;
       }
     }
   }

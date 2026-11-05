@@ -4,12 +4,15 @@
   // Colors
   --color-theme-site-background: #EEEEEE;
   --color-theme-site-container-background: #F6F6F4;
-  --color-theme-lightest: #ffffff;
+  
+
   --color-theme-primary: #D90368;
+  --color-theme-primary-light: #F5ECEE;
+  --color-theme-primary-tint: #FBD5E7;
   --color-theme-secondary: #FB8B24;
   --color-theme-secondary-light: #664047;
 
-  --color-theme-primary-tint: #F5ECEE;
+  --color-theme-lightest: #ffffff;
   --color-theme-darkest: #291720;
   --color-theme-darkest-light: #744950;
   --color-theme-danger: #EB0105;
@@ -20,7 +23,7 @@
   --font-theme-family-sans-serif: 'Open Sans', Arial, Helvetica, sans-serif;
   --font-theme-family-slab-serif: "Roboto Slab", Georgia, Courier New, serif;
   --font-theme-size-body: #{rem-calc(18)};
-  --font-theme-size-form-error: #{rem-calc(16)};
+  --font-theme-size-base: #{rem-calc(16)};
   --font-theme-size-body-larger: #{rem-calc(20)};
   --font-theme-size-body-largest: #{rem-calc(22)};
 
@@ -41,17 +44,34 @@ h1 {
   --max: 40;
 }
 
+header h1 {
+  --min: 24;
+  --max: 104;
+}
+
+.heading-one-and-strapline--mobile h1 {
+  --min: 64;
+  --max: 144;
+}
+
 h2 {
   --min: 24;
   --max: 32;
 }
 
 h3 {
-  --min: 20;
-  --max: 28;
+  --min: 22;
+  --max: 32;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .home-banner span {
   --slope: calc((var(--max) - var(--min)) / (var(--fluid-max-vw) - var(--fluid-min-vw)));
   --intercept: calc(var(--min) - var(--slope) * var(--fluid-min-vw));
+}
+
+.home-banner {
+  span {
+      --min: 24;
+      --max: 36;
+  }
 }

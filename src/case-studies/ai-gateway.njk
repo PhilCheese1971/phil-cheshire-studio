@@ -15,10 +15,10 @@ headerClass: 'secondary'
     {% include 'web-detail-skills-list.njk' %}
 </div>
 <div class="grid">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-medium-6">
         {{ aiGateway.fields.caseStudyDetailContent | toHtml | safe }}
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-medium-6">
         {% set caseStudyCarousel = aiGateway %}
         {% include 'image-carousel.njk' %}
         {% set link =  aiGateway.fields.caseStudyDetailProjectLink %}

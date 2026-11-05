@@ -19,17 +19,12 @@
     
     <body>
         <div class="site-container">
-            <header class="header grid ">
-                <div class="col-3">
+            <header class="header display-flex justify-content-between ">
                     <img src="/assets/images/logo.svg" alt="Site logo">
-                </div>
-                <div class="col-6">
                     
-                        <h1 class="header--home">WELCOME</h1> <p class="header--home">Let's make the digital world a better place.</p>
+                        <div class="heading-one-and-strapline heading-one-and-strapline--desktop"> <h1 class="header--home">WELCOME</h1> <p class="header--home">Let's make the digital world a better place.</p> </div>
                     
-                </div>
-                <div class="col-3"> 
-                    <nav class="menu menu--global">
+                    <nav class="menu menu--global menu--global--desktop-tablet" aria-label="Tertiary site menu">
                         <ul>
                             
                                 
@@ -55,10 +50,21 @@
                             
                         </ul>
                     </nav>
-                </div>
+                    <button class="menu-button" type="button" data-target="mobile-menu-dialog" data-dialogtrigger> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="41" fill="none" viewBox="0 0 52 41">
+                            <path fill="currentcolor" d="M2.594 41a2.5 2.5 0 0 1-1.836-.764A2.53 2.53 0 0 1 0 38.384q0-1.086.758-1.856a2.48 2.48 0 0 1 1.836-.768h46.773q1.093 0 1.863.773t.77 1.87-.77 1.848-1.863.749zm0-11.943q-1.077 0-1.836-.762Q0 27.535 0 26.425t.758-1.859q.759-.75 1.836-.75h46.773q1.093 0 1.863.762t.77 1.87-.77 1.86-1.863.75zm0-11.834q-1.077 0-1.836-.761Q0 15.7 0 14.59q0-1.11.758-1.86.759-.748 1.836-.748h46.773q1.093 0 1.863.761t.77 1.871-.77 1.859-1.863.749zm0-11.982q-1.077 0-1.836-.765A2.53 2.53 0 0 1 0 2.624Q0 1.538.758.77A2.48 2.48 0 0 1 2.594 0h46.773q1.093 0 1.863.773t.77 1.87q0 1.1-.77 1.848-.77.75-1.863.75z"/>
+                        </svg>
+                            <span class="visually-hidden">Open mobile menu</span>
+                    </button>
+                
             </header>
             <main>
-                <section><nav class="menu menu--home">
+                <section><div class="heading-one-and-strapline heading-one-and-strapline--mobile">
+    <h1>WELCOME</h1>
+    <p>Let's make the digital world a better place.</p>
+</div>
+
+<nav class="menu menu--home">
     <ul>
         <li>
             <a class="home-banner home-banner--web" href="/recent-web-work/"><span>Recent web work &gt;</span></a>
@@ -73,10 +79,85 @@
 </nav></section>
             </main>
             <footer>
-                <p>&copy; Phil Cheshire 2026. All rights reserved.</p>
+                <p>&copy; Phil Cheshire <span id="currentYear"> 2026.</span> All rights reserved.</p>
             </footer>
+            <script>document.querySelector("#currentYear").textContent = new Date().getFullYear();</script>
             <!-- <script src="./page.js"></script> -->
         </div>
+        <script type="module" src="/assets/js/dialog-triggers.js">
+            // import { trapFocusInDialog } from '${ctx.contextPath}/.resources/goodthings-magnolia/webresources/js/trap-dialog-focus.js';
+           
+            // window.trapFocusInDialog = trapFocusInDialog;
+
+        </script>
+        
+        
+<dialog class="dialog--mobile-menu" aria-live="polite" data-name="mobile-menu-dialog">
+    <h2 class="visually-hidden">Mobile menu</h2>
+    <button type="button" class="close-button" data-target="mobile-menu-dialog" data-dialogtrigger>
+        <span class="visually-hidden">Close mobile menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" viewBox="0 0 44 44">
+            <path fill="currentcolor" d="M22 26.518 5.479 43.038Q4.518 44 3.22 44t-2.258-.962Q0 42.078 0 40.78t.962-2.259L17.482 22 .962 5.479Q0 4.518 0 3.22T.962.962Q1.922 0 3.22 0T5.48.962L22 17.482 38.521.962Q39.483 0 40.78 0q1.298 0 2.258.962.962.96.962 2.258t-.962 2.259L26.518 22l16.52 16.521q.962.962.962 2.259 0 1.298-.962 2.258-.96.962-2.258.962t-2.259-.962z"/>
+        </svg>
+    </button>
+    <nav class="menu menu--main menu--main--mobile" aria-label="Main site menu">
+    
+
+    <ul>
+        
+            
+            <li>
+                
+                    <a href="/recent-web-work/">Recent web work</a>
+                
+            </li>
+        
+            
+            <li>
+                
+                    <a href="/video-and-film-editing/">Video &amp; film editing</a>
+                
+            </li>
+        
+            
+            <li>
+                
+                    <a href="/songwriting-and-production/">Songwriting &amp; production</a>
+                
+            </li>
+        
+    </ul>
+
+    </nav>
+    <hr class="mobile-divider">
+    <nav class="menu menu--global menu--mobile" aria-label="Tertiary site menu">
+        <ul>
+            
+                
+                <li>
+                    
+                        <a href="/about-me/">About me</a>
+                    
+                </li>
+            
+                
+                <li>
+                    
+                        <a href="/talk-to-me/">Talk to me</a>
+                    
+                </li>
+            
+                
+                <li>
+                    
+                        <a href="/other-interests/">Other interests</a>
+                    
+                </li>
+            
+        </ul>
+    </nav>
+</dialog>
+        
         
     </body>
 </html>

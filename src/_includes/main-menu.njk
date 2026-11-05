@@ -12,7 +12,7 @@
         label: songwritingHeading.fields.heading1Text
     }
 ] %}
-<nav class="menu menu--main">
+
     <ul>
         {% for navLink in mainNavLinks %}
             {% set isCurrent = (page and page.url == navLink.url) %}
@@ -25,4 +25,3 @@
             </li>
         {% endfor %}
     </ul>
-</nav>

@@ -8,14 +8,14 @@ headerClass: 'secondary'
 {{ websitesHeadingAndBlurb.fields.topParagraph | toHtml | safe }}
 <ul class="web-banners">
   {% for banner in caseStudyBanners %}
-      <li class="display-flex">
-          {% if banner.fields.projectPhoto %}
-              <img src="{{ banner.fields.projectPhoto.fields.file.url }}?fm=webp" alt="{{ banner.fields.projectPhoto.fields.description }}">
-          {% endif %}
-          <div class="table-and-link">
-            {{ banner.fields.projectInfoTable | toHtml | safe }}
-            <a href="/case-studies/{{ banner.fields.projectTitle | replace(' ', '-') | lower }}">Read more about {{ banner.fields.projectTitle }} ></a>
-          </div>
+      <li class="grid">
+        <div class="banner-background col-12 col-medium-6"{% if banner.fields.projectPhoto %} style="background-image: url('https:{{ banner.fields.projectPhoto.fields.file.url }}?fm=webp&w=396&q=80');"{% endif %}></div>        
+        <div class="table-and-link col-12 col-medium-6">
+            <div class="cms-richtext">
+              {{ banner.fields.projectInfoTable | toHtml | safe }}
+              <a href="/case-studies/{{ banner.fields.projectTitle | replace(' ', '-') | lower }}">Read more about {{ banner.fields.projectTitle }} ></a>
+            </div>
+        </div>
       </li>
   {% else %}
     <li>No banners found.</li>

@@ -147,6 +147,8 @@ module.exports = function (eleventyConfig) {
     return ""; // not a recognised player: output nothing
   };
 
+  eleventyConfig.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
+
   eleventyConfig.addFilter("toHtml", function (richTextField) {
     if (!richTextField) return "";
     const cellContent = (node, next) =>
@@ -191,6 +193,15 @@ module.exports = function (eleventyConfig) {
           const attrs = internalLink ? "" : `target="_blank" rel="noopener noreferrer" aria-label="${next(node.content)} - opens in a new window or tab"`;
           const getsIcon = internalLink ? "" : `${addIconToLink("open_in_new_24dp", "external-link-icon")}`
           return `<a href="${uri}"${attrs}>${next(node.content)}${getsIcon}</a>`;
+        },
+
+        [BLOCKS.LIST_ITEM]: (node, next) => {
+          const onlyChild = node.content.length === 1 ? node.content[0] : null;
+          const isSimpleParagraph = onlyChild && onlyChild.nodeType === BLOCKS.PARAGRAPH;
+
+          // one paragraph: render its contents directly, with no <p> wrapper
+          const inner = isSimpleParagraph ? next(onlyChild.content) : next(node.content);
+          return `<li>${inner}</li>`;
         },
       }
     };

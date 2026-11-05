@@ -1,5 +1,5 @@
 .hide {
-  display: none;
+  display: none!important;
 }
 
 .text-center {
@@ -44,5 +44,26 @@
   }
   &-bottom {
     vertical-align: bottom;
+  }
+}
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.position {
+  &-fixed {
+    position: fixed;
+  }
+}
+
+.width {
+  &-100 {
+    width: 100%;
   }
 }

@@ -1,12 +1,26 @@
+@use "sass:map";
+
 $columns: 12;
 $gap: 52px;
 $breakpoints: (
-    xs: 480px,
-    sm: 768px,
-    md: 960px,
-    lg: 1170px,
-    xl: 1280px
+    xsmall: 480px,
+    small: 768px,
+    medium: 960px,
+    large: 1170px,
+    xlarge: 1280px
 );
+
+// Wraps content in a min-width media query using the widths in $breakpoints.
+// Usage: @include breakpoint(md) { ... }
+@mixin breakpoint($name) {
+    @if map.has-key($breakpoints, $name) {
+        @media (min-width: map.get($breakpoints, $name)) {
+            @content;
+        }
+    } @else {
+        @error "Unknown breakpoint `#{$name}`. Available: #{map.keys($breakpoints)}";
+    }
+}
 
 @mixin create-selectors($breakpoint: null) {
     $infix: if(sass($breakpoint == null): ""; else: "-#{$breakpoint}");
@@ -27,17 +41,24 @@ $breakpoints: (
     }
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat($columns, 1fr);
-    grid-gap: $gap;
-    gap: $gap;
-}
-
 @include create-selectors;
 
-@each $breakpoint, $width in $breakpoints {
-    @media (min-width: $width) {
-        @include create-selectors($breakpoint);
+@each $name, $width in $breakpoints {
+    @include breakpoint($name) {
+        @include create-selectors($name);
     }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: 16px;
+
+  @include breakpoint(small) {
+    gap: 32px;
+  }
+
+  @include breakpoint(large) {
+    gap: $gap; // 52px, kept for large screens
+  }
 }

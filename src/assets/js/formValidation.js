@@ -1,12 +1,12 @@
 const submitButton = document.querySelector('#submitButton');
 
 const labelCaptchaFields = () => {
-  const fields = document.querySelectorAll(
+  const captchaFields = document.querySelectorAll(
     'textarea[name="h-captcha-response"]'
   );
-  fields.forEach((ta) => {
-    if (!ta.hasAttribute('aria-label')) {
-      ta.setAttribute('aria-label', 'hCaptcha response');
+  captchaFields.forEach((field) => {
+    if (!field.hasAttribute('aria-label')) {
+      field.setAttribute('aria-label', 'hCaptcha response');
     }
   });
   return fields.length > 0;

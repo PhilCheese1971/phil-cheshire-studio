@@ -14,13 +14,15 @@ headerClass: 'secondary'
     <h2>{{ learnMyWay.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
 </div>
 <div class="grid">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-medium-6">
         <div>
             {# {% blockSvg "case-study-rotated" %} #}
-            {{ learnMyWay.fields.caseStudyDetailContent | toHtml | safe }}
+            <div class="cms-richtext">
+                {{ learnMyWay.fields.caseStudyDetailContent | toHtml | safe }}
+            </div>
         </div>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-medium-6">
         {% set caseStudyCarousel = learnMyWay %}
         {% include 'image-carousel.njk' %}
         {% set link =  learnMyWay.fields.caseStudyDetailProjectLink %}

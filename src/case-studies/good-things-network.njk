@@ -13,10 +13,10 @@ headerClass: 'secondary'
     <h2>{{ goodThingsNetwork.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
 </div>
 <div class="grid">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-medium-6">
         {{ goodThingsNetwork.fields.caseStudyDetailContent | toHtml | safe }}
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-medium-6">
         {% set caseStudyCarousel = goodThingsNetwork %}
         {% include 'image-carousel.njk' %}
         {% set link =  goodThingsNetwork.fields.caseStudyDetailProjectLink %}
