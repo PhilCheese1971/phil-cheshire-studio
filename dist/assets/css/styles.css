@@ -1394,6 +1394,11 @@ nav.menu--home ul li a span {
   color: white;
   max-width: 80%;
 }
+nav.menu--home ul li a.home-banner {
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: left top;
+}
 nav.menu--home ul li a.home-banner--web {
   background: url(../images/web-home-overlay.png) no-repeat left top transparent;
 }

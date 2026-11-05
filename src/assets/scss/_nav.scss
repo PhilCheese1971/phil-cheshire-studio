@@ -46,8 +46,12 @@ nav {
               max-width: 80%;
             }
             &.home-banner {
+              background-repeat: no-repeat;
+              background-color: transparent;
+              background-position: left top;
               &--web {
                 background: url(../images/web-home-overlay.png) no-repeat left top transparent;
+                
               }
               &--video {
                 background: url(../images/video-home-overlay.png) no-repeat left top transparent;
