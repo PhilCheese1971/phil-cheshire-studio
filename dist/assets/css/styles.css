@@ -1608,7 +1608,7 @@ body {
   margin: 0 auto;
   padding: 2.25rem 1.5rem 3.25rem;
 }
-@media (min-width: 960px) {
+@media (min-width: 768px) {
   .site-container {
     padding: 3rem 2.25rem 3rem;
   }
