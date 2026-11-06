@@ -483,7 +483,7 @@ h1, h2, h3, .home-banner span {
   grid-row-start: 13;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 412px) {
   .col-xsmall-1 {
     --col-span: 1;
     grid-column-end: span calc(var(--col-span) + var(--col-offset, 0));
@@ -1333,7 +1333,7 @@ h1, h2, h3, .home-banner span {
     grid-row-start: 13;
   }
 }
-@media (min-width: 480px) {
+@media (min-width: 412px) {
   .hide-for-xsmall {
     display: none !important;
   }
@@ -1342,7 +1342,7 @@ h1, h2, h3, .home-banner span {
 .show-for-xsmall {
   display: none !important;
 }
-@media (min-width: 480px) {
+@media (min-width: 412px) {
   .show-for-xsmall {
     display: block !important;
   }
@@ -1351,7 +1351,7 @@ h1, h2, h3, .home-banner span {
 .show-for-xsmall-flex {
   display: none !important;
 }
-@media (min-width: 480px) {
+@media (min-width: 412px) {
   .show-for-xsmall-flex {
     display: flex !important;
   }
@@ -1360,7 +1360,7 @@ h1, h2, h3, .home-banner span {
 .show-for-xsmall-grid {
   display: none !important;
 }
-@media (min-width: 480px) {
+@media (min-width: 412px) {
   .show-for-xsmall-grid {
     display: grid !important;
   }
@@ -1369,7 +1369,7 @@ h1, h2, h3, .home-banner span {
 .show-for-xsmall-inline {
   display: none !important;
 }
-@media (min-width: 480px) {
+@media (min-width: 412px) {
   .show-for-xsmall-inline {
     display: inline !important;
   }
@@ -1378,7 +1378,7 @@ h1, h2, h3, .home-banner span {
 .show-for-xsmall-inline-block {
   display: none !important;
 }
-@media (min-width: 480px) {
+@media (min-width: 412px) {
   .show-for-xsmall-inline-block {
     display: inline-block !important;
   }
@@ -1728,8 +1728,13 @@ header.secondary {
   margin-bottom: 3.25rem;
 }
 header img {
-  width: 14.125rem;
+  width: 12.75rem;
   min-width: 11.125rem;
+}
+@media (min-width: 1170px) {
+  header img {
+    width: 14.125rem;
+  }
 }
 
 nav.menu ul {
@@ -1745,13 +1750,12 @@ nav.menu--global ul {
 }
 nav.menu--home ul {
   max-width: 83.75rem;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
   list-style: none;
 }
 nav.menu--home ul li {
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
 }
 nav.menu--home ul li a {
   display: flex;
@@ -1777,15 +1781,6 @@ nav.menu--home ul li a.home-banner {
   background-color: transparent;
   background-position: left top;
 }
-nav.menu--home ul li a.home-banner--web {
-  background: url(../images/web-home-overlay.png) no-repeat left top transparent;
-}
-nav.menu--home ul li a.home-banner--video {
-  background: url(../images/video-home-overlay.png) no-repeat left top transparent;
-}
-nav.menu--home ul li a.home-banner--songwriting {
-  background: url(../images/songwriting-home-overlay.png) no-repeat left top transparent;
-}
 nav.menu--home ul li a.home-banner:hover span {
   background-color: var(--color-theme-primary);
 }
@@ -1802,7 +1797,12 @@ nav.menu--global ul li:first-of-type {
 nav.menu--main {
   background-color: var(--color-theme-primary-light);
   margin: -4rem auto 0;
-  width: max-content;
+  width: 100%;
+}
+@media (min-width: 1170px) {
+  nav.menu--main {
+    width: max-content;
+  }
 }
 nav.menu--main ul {
   list-style: none;

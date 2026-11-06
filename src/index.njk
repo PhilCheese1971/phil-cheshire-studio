@@ -16,9 +16,9 @@ headerContent:
 </div>
 
 <nav class="menu menu--home">
-    <ul>
+    <ul class="grid">
         {% for image in homepageBannerImages %}
-            <li>
+            <li class="col-12">
                 <a class="home-banner" href="/{{ image.fields.title  | replace(' ', '-') | replace('&', 'and') | lower }}/" style="background-image: url('https:{{ image.fields.file.url }}?fm=webp&q=80');"><span>{{ image.fields.title }} &gt;</span></a>
             </li>
         {% endfor %}

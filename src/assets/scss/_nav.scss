@@ -21,12 +21,12 @@ nav {
     &--home {
       ul {
         max-width: 83.75rem;
-        margin: 0 auto;
+        margin: 0 auto 3rem;
         list-style: none;
         li {
           display: flex;
           align-items: center;
-          margin-bottom: 3rem;
+          
           a {
             display: flex;
             width: 100%;
@@ -49,16 +49,6 @@ nav {
               background-repeat: no-repeat;
               background-color: transparent;
               background-position: left top;
-              &--web {
-                background: url(../images/web-home-overlay.png) no-repeat left top transparent;
-                
-              }
-              &--video {
-                background: url(../images/video-home-overlay.png) no-repeat left top transparent;
-              }
-              &--songwriting {
-                background: url(../images/songwriting-home-overlay.png) no-repeat left top transparent;
-              }
               &:hover {
                 span {
                   background-color: var(--color-theme-primary);
@@ -84,7 +74,11 @@ nav {
     &--main {
       background-color: var(--color-theme-primary-light);
       margin: -4rem auto 0;
-      width: max-content;
+      width: 100%;
+
+      @include breakpoint(large) {
+        width: max-content;
+      }
       
       ul {
         list-style: none;
