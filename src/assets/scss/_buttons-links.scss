@@ -18,10 +18,11 @@
 }
 
 .menu-button {
-  display: block;
   background-color: transparent;
-  @include breakpoint(medium) {
-      display: none;
-  }
   align-self: flex-start;
+}
+
+.mobile-menu-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }

@@ -3,12 +3,14 @@ layout: base.njk
 title:
     PhilCheshire.studio
 headerContent:
-    <div class="heading-one-and-strapline heading-one-and-strapline--desktop">
-        <h1 class="header--home">WELCOME</h1>
-        <p class="header--home">Let's make the digital world a better place.</p>
+    <div class="col-large-6 show-for-large">
+        <div class="heading-one-and-strapline heading-one-and-strapline--desktop">
+            <h1>WELCOME</h1>
+            <p>Let's make the digital world a better place.</p>
+        </div>
     </div>
 ---
-<div class="heading-one-and-strapline heading-one-and-strapline--mobile">
+<div class="heading-one-and-strapline heading-one-and-strapline--mobile hide-for-large">
     <h1>WELCOME</h1>
     <p>Let's make the digital world a better place.</p>
 </div>
@@ -17,7 +19,7 @@ headerContent:
     <ul>
         {% for image in homepageBannerImages %}
             <li>
-                <a class="home-banner" href="/{{ websitesHeadingAndBlurb.fields.heading1Text | replace(' ', '-') | replace('&', 'and') | lower }}/" style="background-image: url('https:{{ image.fields.file.url }}?fm=webp&q=80');"><span>{{ websitesHeadingAndBlurb.fields.heading1Text }} &gt;</span></a>
+                <a class="home-banner" href="/{{ image.fields.title  | replace(' ', '-') | replace('&', 'and') | lower }}/" style="background-image: url('https:{{ image.fields.file.url }}?fm=webp&q=80');"><span>{{ image.fields.title }} &gt;</span></a>
             </li>
         {% endfor %}
     </ul>

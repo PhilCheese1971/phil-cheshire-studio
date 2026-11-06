@@ -46,10 +46,11 @@ h3 {
 
 .heading-one-and-strapline {
     &--mobile, &--desktop {
+        display: none;
         h1 {
             font-weight: 900;
             font-family: var(--font-theme-family-slab-serif);
-            color: var(--color-theme-neutral);
+            color: #9D818F
         }
         p {
             font-size: var(--font-theme-size-body);
@@ -63,7 +64,6 @@ h3 {
         h1 {
             line-height: 104.5%;
             text-wrap: nowrap;
-            margin-top: rem-calc(20);
         }
     }
 

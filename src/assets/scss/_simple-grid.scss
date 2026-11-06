@@ -10,8 +10,8 @@ $breakpoints: (
     xlarge: 1280px
 );
 
-// Wraps content in a min-width media query using the widths in $breakpoints.
-// Usage: @include breakpoint(md) { ... }
+// Wraps content in a min-width media query (this width and up).
+// Usage: @include breakpoint(medium) { ... }
 @mixin breakpoint($name) {
     @if map.has-key($breakpoints, $name) {
         @media (min-width: map.get($breakpoints, $name)) {
@@ -22,15 +22,27 @@ $breakpoints: (
     }
 }
 
+// Column classes, e.g. .col-large-5 and .col-offset-large-1
+//
+// .col-large-5 .col-offset-large-1 takes up 6 columns in total:
+// 1 empty column on the left, then the item across the next 5.
+// The offset is relative, so it works wherever the item lands in the row.
+//
+// It works by making the item's grid area (span + offset) columns wide,
+// then pushing the item right by the width of the offset columns.
 @mixin create-selectors($breakpoint: null) {
     $infix: if(sass($breakpoint == null): ""; else: "-#{$breakpoint}");
 
     @for $i from 1 through $columns {
         .col#{$infix}-#{$i} {
-            grid-column-end: span $i;
+            --col-span: #{$i};
+            grid-column-end: span calc(var(--col-span) + var(--col-offset, 0));
         }
         .col-offset#{$infix}-#{$i} {
-            grid-column-start: $i + 1;
+            --col-offset: #{$i};
+            margin-inline-start: calc(
+                (100% + var(--grid-gap)) * var(--col-offset) / (var(--col-span) + var(--col-offset))
+            );
         }
         .row#{$infix}-#{$i} {
             grid-row-end: span $i;
@@ -38,6 +50,22 @@ $breakpoints: (
         .row-offset#{$infix}-#{$i} {
             grid-row-start: $i + 1;
         }
+    }
+}
+
+.grid {
+    --grid-gap: 16px;
+
+    display: grid;
+    grid-template-columns: repeat($columns, minmax(0, 1fr));
+    gap: var(--grid-gap);
+
+    @include breakpoint(small) {
+        --grid-gap: 32px;
+    }
+
+    @include breakpoint(large) {
+        --grid-gap: #{$gap};
     }
 }
 
@@ -49,16 +77,35 @@ $breakpoints: (
     }
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat($columns, minmax(0, 1fr));
-  gap: 16px;
+// Show / hide utilities (mobile first, min-width only)
+//
+// .hide-for-medium        : hidden from medium and up
+// .show-for-medium        : hidden by default, shown as display: block from medium and up
+// .show-for-medium-flex   : same, but shown as display: flex (also -grid, -inline, -inline-block)
+$show-displays: (flex, grid, inline, inline-block);
 
-  @include breakpoint(small) {
-    gap: 32px;
-  }
+@each $name, $width in $breakpoints {
+    .hide-for-#{$name} {
+        @include breakpoint($name) {
+            display: none !important;
+        }
+    }
 
-  @include breakpoint(large) {
-    gap: $gap; // 52px, kept for large screens
-  }
+    .show-for-#{$name} {
+        display: none !important;
+
+        @include breakpoint($name) {
+            display: block !important;
+        }
+    }
+
+    @each $display in $show-displays {
+        .show-for-#{$name}-#{$display} {
+            display: none !important;
+
+            @include breakpoint($name) {
+                display: $display !important;
+            }
+        }
+    }
 }

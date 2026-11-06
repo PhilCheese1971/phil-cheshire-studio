@@ -9,7 +9,7 @@ body {
     font-family: var(--font-theme-family-sans-serif);
     position: relative;
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
         padding: 3.5rem;
     }
 }
@@ -18,8 +18,8 @@ body {
     max-width: 1440px;
     margin: 0 auto;
     padding: 2.25rem 1.5rem 3.25rem;
-    @include breakpoint(medium) {
-        padding: 4rem 3.25rem 3.25rem;
+    @include breakpoint(large) {
+        padding: 3.75rem 3.25rem 3.25rem;
     }
     background-color: var(--color-theme-site-container-background);
 }

@@ -2,34 +2,21 @@
 @use "simple-grid" as *;
 
 header {
-    margin-bottom: 2rem;
-    @include breakpoint(medium) {
+    margin-bottom: 3.25rem;
+    @include breakpoint(large) {
             margin-bottom: 4.75rem;
         }
     &.secondary {
         margin-bottom: 3.25rem;
     }
     img {
-        width: rem-calc(187);
-        @include breakpoint(medium) {
-            width: auto;
-            min-width: rem-calc(187); 
-            align-self: flex-start;
+        width: rem-calc(204);
+        min-width: rem-calc(178);
+
+        @include breakpoint(large) {
+            width: rem-calc(226);
         }
         
-    }
-    .heading-one-and-strapline--desktop {
-        display: none;
-        @include breakpoint(medium) {
-            display: block;
-            padding: 0 1.5rem;
-        }
-    }
-}
-
-.heading-one-and-strapline--mobile {
-    display: block;
-    @include breakpoint(medium) {
-        display: none
+        
     }
 }

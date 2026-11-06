@@ -83,18 +83,20 @@ nav {
     }
     &--main {
       background-color: var(--color-theme-primary-light);
-      margin: -4rem 20px 0 20px; 
-      padding: 2rem 4.5rem;
+      margin: -4rem auto 0;
+      width: max-content;
+      
       ul {
         list-style: none;
         text-align: center;
         font-size: 1.5rem;
+        padding: 2rem 3rem;
         li {
           display: block;
           margin-bottom: 1.5rem;
           line-height: 1.46;
           &:last-of-type {
-            margin-bottom: 0;
+            margin-bottom: 0.75rem;
           }
         }
       }
@@ -108,12 +110,6 @@ nav {
     &--mobile {
       ul {
         text-align: center;
-      }
-    }
-    &--main--desktop-tablet, &--global--desktop-tablet {
-      display: none;
-      @include breakpoint(medium) {
-          display: block;
       }
     }
   }

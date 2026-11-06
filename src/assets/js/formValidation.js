@@ -9,7 +9,7 @@ const labelCaptchaFields = () => {
       field.setAttribute('aria-label', 'hCaptcha response');
     }
   });
-  return fields.length > 0;
+  return captchaFields.length > 0;
 };
 
 if (!labelCaptchaFields()) {
