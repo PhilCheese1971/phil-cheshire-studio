@@ -1607,6 +1607,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   padding: 2.25rem 1.5rem 3.25rem;
+  height: 100vh;
 }
 @media (min-width: 768px) {
   .site-container {
@@ -1616,6 +1617,7 @@ body {
 @media (min-width: 1170px) {
   .site-container {
     padding: 3.75rem 3.25rem 3.25rem;
+    height: auto;
   }
 }
 .site-container {
