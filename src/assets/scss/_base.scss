@@ -18,6 +18,9 @@ body {
     max-width: 1440px;
     margin: 0 auto;
     padding: 2.25rem 1.5rem 3.25rem;
+     @include breakpoint(medium) {
+        padding: 3rem 2.25rem 3rem;
+    }
     @include breakpoint(large) {
         padding: 3.75rem 3.25rem 3.25rem;
     }
