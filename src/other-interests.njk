@@ -7,7 +7,7 @@ headerClass: 'secondary'
 ---
 <h1>{{ otherInterests.fields.tertiaryPageHeading }}</h1>
 {{ otherInterests.fields.tertiaryPageContent | toHtml | safe }}
-<div class="pswp-gallery" id="gallery">
+<div class="pswp-gallery" id="gallery" data-base="{{ '/' | url }}">
   {% for image in otherInterests.fields.otherInterestsGallery %}
     {% set full = image | ctfFull(2000) %}
     {% set d = image.fields.file.details.image %}
