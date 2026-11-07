@@ -1,9 +1,16 @@
-import PhotoSwipeLightbox from '/photoswipe/photoswipe-lightbox.esm.js';
+
+
+const gallery = document.getElementById('gallery');
+
+if (gallery) {
+  const base = gallery.dataset.base || '/';
+  const { default: PhotoSwipeLightbox } = await import(`${base}photoswipe/photoswipe-lightbox.esm.js`);
+
 const lightbox = new PhotoSwipeLightbox({
   gallery: '#gallery',
   children: 'a',
   bgOpacity: 0.9,
-  pswpModule: () => import('/photoswipe/photoswipe.esm.js'),
+  pswpModule: () => import(`${base}photoswipe/photoswipe.esm.js`)
 });
 lightbox.on('afterInit', () => {
   const pswp = lightbox.pswp;
@@ -36,3 +43,4 @@ lightbox.on('afterInit', () => {
   pswp.on('destroy', () => root.removeEventListener('keydown', onKeydown));
 });
 lightbox.init();
+}

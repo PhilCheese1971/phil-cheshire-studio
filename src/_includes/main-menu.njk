@@ -1,15 +1,15 @@
 {% set mainNavLinks = [
     {
-        url: "/" ~ (websitesHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
-        label: websitesHeadingAndBlurb.fields.heading1Text
+        url: "/" ~ (recentWebWorkHeadingAndLead.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+        label: recentWebWorkHeadingAndLead.fields.heading1Text
     },
     {
-        url: "/" ~ (videoAndFilmHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
-        label: videoAndFilmHeadingAndBlurb.fields.heading1Text
+        url: "/" ~ (videoAndFilmHeadingAndLead.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+        label: videoAndFilmHeadingAndLead.fields.heading1Text
     },
     {
-        url: "/" ~ (songwritingHeading.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
-        label: songwritingHeading.fields.heading1Text
+        url: "/" ~ (songwritingHeadingAndLead.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+        label: songwritingHeadingAndLead.fields.heading1Text
     }
 ] %}
 

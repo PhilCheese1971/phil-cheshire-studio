@@ -35,6 +35,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("njk", nunjucksEnvironment);
 
+  eleventyConfig.addPassthroughCopy({ "node_modules/photoswipe/dist": "photoswipe" });
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/assets/images");
 
@@ -80,12 +81,25 @@ module.exports = function (eleventyConfig) {
   const inlineSvg = (name) =>
     fs.readFileSync(path.join("src/assets/images/icons", `${name}.svg`), "utf8");
 
-  const addIconToLink = (iconName, className = "") =>
+  
+
+  const formatInlineSvg = (iconName, className = "") =>
   inlineSvg(iconName)
     .replace(/fill="#[0-9a-f]{3,8}"/gi, 'fill="currentColor"')
     .replace("<svg", `<svg class="${className}" aria-hidden="true" focusable="false"`);
 
-  eleventyConfig.addShortcode("svg", addIconToLink);
+  eleventyConfig.addShortcode("svg", formatInlineSvg);
+
+
+  const blockSvg = (name) =>
+    fs.readFileSync(path.join("src/assets/images", `${name}.svg`), "utf8");
+
+  const formatBlockSvg = (iconName, className = "") =>
+  blockSvg(iconName)
+    .replace(/fill="#[0-9a-f]{3,8}"/gi, 'fill="currentColor"')
+    .replace("<svg", `<svg class="${className}" aria-hidden="true" focusable="false"`);
+
+  eleventyConfig.addShortcode("svgInPage", formatBlockSvg);
 
   eleventyConfig.addFilter("ctfFull", (asset, maxW = 2000) => {
     const { width, height } = asset.fields.file.details.image;
@@ -191,7 +205,7 @@ module.exports = function (eleventyConfig) {
           const uri = node.data.uri;
           const internalLink = isInternalLink(uri);
           const attrs = internalLink ? "" : `target="_blank" rel="noopener noreferrer" aria-label="${next(node.content)} - opens in a new window or tab"`;
-          const getsIcon = internalLink ? "" : `${addIconToLink("open_in_new_24dp", "external-link-icon")}`
+          const getsIcon = internalLink ? "" : `${formatInlineSvg("open_in_new_24dp", "external-link-icon")}`
           return `<a href="${uri}"${attrs}>${next(node.content)}${getsIcon}</a>`;
         },
 

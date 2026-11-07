@@ -1,28 +1,48 @@
----
-layout: base.njk
-eleventyComputed:
-  title: "{{ aiGateway.fields.caseStudyDetailHeading | replace('&', 'and') | title | replace('Ai', 'AI')  }} > {{ websitesHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
-headerClass: 'secondary'
+---js
+{
+  layout: "base.njk",
+  headerClass: "secondary",
+  eleventyComputed: {
+    heading1AndLeadParagraph: (data) => data.recentWebWorkHeadingAndLead,
+    currentCaseStudy: (data) => data.aiGateway,
+    title: (data) => {
+      const heading = [
+        data.currentCaseStudy?.fields?.caseStudyDetailHeading,
+        data.heading1AndLeadParagraph?.fields?.heading1Text
+        ]
+        .filter(Boolean)
+        .join(" > ");
+      if (!heading) return "PhilCheshire.studio";
+      const text = heading
+        .replace(/&/g, "and")
+        .toLowerCase()
+        .replace(/\b\w/g, (c) => c.toUpperCase())
+        .replace('Ai', 'AI');
+      return `${text} > PhilCheshire.studio`;
+    },
+  },
+}
 ---
 <div class="heading-and-link-wrapper">
-    <a href="/{{ websitesHeadingAndBlurb.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ websitesHeadingAndBlurb.fields.heading1Text }}</a>
-    <h1>{{ aiGateway.fields.caseStudyDetailHeading }}</h1>
+    <a href="/{{ heading1AndLeadParagraph.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ heading1AndLeadParagraph.fields.heading1Text }}</a>
+    <h1>{{ currentCaseStudy.fields.caseStudyDetailHeading }}</h1>
 </div>
-
-{% set caseStudy = aiGateway %}
 <div class="heading-and-skills-list-wrapper">
-    <h2>{{ aiGateway.fields.caseStudyDetailProjectType }}</h2>
-    {% include 'web-detail-skills-list.njk' %}
+    <h2>{{ currentCaseStudy.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
 </div>
 <div class="grid">
-    <div class="col-12 col-medium-6">
-        {{ aiGateway.fields.caseStudyDetailContent | toHtml | safe }}
-    </div>
-    <div class="col-12 col-medium-6">
-        {% set caseStudyCarousel = aiGateway %}
+     <div class="col-12">
+        <p class="lead">
+            {{ currentCaseStudy.fields.caseStudyDetailIntro | safe }}
+        </p>
+        {% set caseStudyCarousel = currentCaseStudy %}
         {% include 'image-carousel.njk' %}
-        {% set link =  aiGateway.fields.caseStudyDetailProjectLink %}
-        {% set linkText = ' the ' + aiGateway.fields.caseStudyDetailHeading %}
+        {% set link =  currentCaseStudy.fields.caseStudyDetailProjectLink %}
+        {% set linkText = currentCaseStudy.fields.caseStudyDetailHeading %}
         {% include 'link-in-new-window.njk' %}    
+        {# {% blockSvg "case-study-rotated" %} #}
+        <div class="cms-richtext">
+            {{ currentCaseStudy.fields.caseStudyDetailContent | toHtml | safe }}
+        </div>
     </div>
 </div>

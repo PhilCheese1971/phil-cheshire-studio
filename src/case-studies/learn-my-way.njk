@@ -1,33 +1,46 @@
----
-layout: base.njk
-eleventyComputed:
-  title: "{{ learnMyWay.fields.caseStudyDetailHeading | replace('&', 'and') | title }} > {{ websitesHeadingAndBlurb.fields.heading1Text | replace('&', 'and') | title }} > PhilCheshire.studio"
-headerClass: 'secondary'
+---js
+{
+  layout: "base.njk",
+  headerClass: "secondary",
+  eleventyComputed: {
+    heading1AndLeadParagraph: (data) => data.recentWebWorkHeadingAndLead,
+    currentCaseStudy: (data) => data.learnMyWay,
+    title: (data) => {
+      const heading = [
+        data.currentCaseStudy?.fields?.caseStudyDetailHeading,
+        data.heading1AndLeadParagraph?.fields?.heading1Text
+        ]
+        .filter(Boolean)
+        .join(" > ");
+      if (!heading) return "PhilCheshire.studio";
+      const text = heading
+        .replace(/&/g, "and")
+        .toLowerCase()
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+      return `${text} > PhilCheshire.studio`;
+    },
+  },
+}
 ---
 <div class="heading-and-link-wrapper">
-    <a href="/{{ websitesHeadingAndBlurb.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ websitesHeadingAndBlurb.fields.heading1Text }}</a>
-    <h1>{{ learnMyWay.fields.caseStudyDetailHeading }}</h1>
+    <a href="/{{ heading1AndLeadParagraph.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ heading1AndLeadParagraph.fields.heading1Text }}</a>
+    <h1>{{ currentCaseStudy.fields.caseStudyDetailHeading }}</h1>
 </div>
-{% set caseStudy = learnMyWay %}
 <div class="heading-and-skills-list-wrapper">
-    
-    <h2>{{ learnMyWay.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
+    <h2>{{ currentCaseStudy.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
 </div>
 <div class="grid">
-    <div class="col-12 col-medium-6">
-        <div>
-            {# {% blockSvg "case-study-rotated" %} #}
-            <div class="cms-richtext">
-                {{ learnMyWay.fields.caseStudyDetailContent | toHtml | safe }}
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-medium-6">
-        {% set caseStudyCarousel = learnMyWay %}
+     <div class="col-12">
+        <div class="case-study-detail">
+        <p class="lead">{{ currentCaseStudy.fields.caseStudyDetailIntro | safe }}</p>
+        {% set caseStudyCarousel = currentCaseStudy %}
         {% include 'image-carousel.njk' %}
-        {% set link =  learnMyWay.fields.caseStudyDetailProjectLink %}
-        {% set linkText = learnMyWay.fields.caseStudyDetailHeading %}
+        {% set link =  currentCaseStudy.fields.caseStudyDetailProjectLink %}
+        {% set linkText = currentCaseStudy.fields.caseStudyDetailHeading %}
         {% include 'link-in-new-window.njk' %}    
-
+        <div class="cms-richtext">
+            {{ currentCaseStudy.fields.caseStudyDetailContent | toHtml | safe }}
+        </div>
+        </div>
     </div>
 </div>

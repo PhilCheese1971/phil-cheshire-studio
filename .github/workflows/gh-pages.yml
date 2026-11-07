@@ -59,7 +59,9 @@ jobs:
           key: ${{ runner.os }}-eleventy-fetch-cache
 
       - name: Install dependencies
-        run: npm ci
+        run: 
+            npm ci
+            npx @11ty/eleventy --pathprefix=/your-repo-name/
 
       - name: Build project
         run: npm run build-ghpages

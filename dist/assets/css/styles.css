@@ -245,6 +245,9 @@ h1, h2, h3, .home-banner span {
 .position-fixed {
   position: fixed;
 }
+.position-relative {
+  position: fixed;
+}
 
 .width-100 {
   width: 100%;
@@ -1596,6 +1599,7 @@ body {
   padding: 0;
   font-family: var(--font-theme-family-sans-serif);
   position: relative;
+  padding-bottom: 2.5rem;
 }
 @media (min-width: 1170px) {
   body {
@@ -1604,10 +1608,9 @@ body {
 }
 
 .site-container {
-  max-width: 1440px;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 2.25rem 1.5rem 3.25rem;
-  height: 100vh;
 }
 @media (min-width: 768px) {
   .site-container {
@@ -1703,20 +1706,11 @@ p {
   font-family: var(--font-theme-family-sans-serif);
 }
 
-main p {
+main section p, main section ul, main section ol {
   font-size: var(--font-theme-size-body);
-  max-width: 56.25rem;
-  margin: 0 auto;
 }
-main p:first-of-type {
-  margin-bottom: 2.75rem;
+main section p.lead {
   font-size: var(--font-theme-size-body-larger);
-}
-main p {
-  margin-bottom: 1.5rem;
-}
-main p:last-of-type {
-  margin-bottom: 3.25rem;
 }
 
 .home-banner span {
@@ -1873,12 +1867,20 @@ dialog.dialog--mobile-menu {
   max-height: 100%;
 }
 
+p, p.lead {
+  max-width: 46.875rem;
+  margin: 0 auto 1.5rem auto;
+}
+
 .cms-richtext ul, .cms-richtext ol {
-  font-size: var(--font-theme-size-body);
-  margin-left: 1.25rem;
+  max-width: 46.875rem;
+  margin: 0 auto 1.5rem auto;
 }
 .cms-richtext ul li, .cms-richtext ol li {
   padding-bottom: 1rem;
+}
+.cms-richtext ol {
+  padding-left: 1.25rem;
 }
 
 ul.skills-list li:not(:last-child)::after {
@@ -1901,7 +1903,7 @@ ul.skills-list li:not(:last-child)::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4.25rem;
+  margin-bottom: 3rem;
   flex-direction: column;
 }
 @media (min-width: 960px) {
@@ -2080,6 +2082,12 @@ hr.mobile-divider {
   margin: 1.5rem auto 2.75rem;
 }
 
+.case-study-detail {
+  background-image: url(../images/case-study-rotated.svg);
+  background-repeat: no-repeat;
+  background-position: 7% 1rem;
+}
+
 .pswp-gallery {
   max-width: 70rem;
   margin-inline: auto;
@@ -2114,7 +2122,7 @@ ul.case-study-carousel {
   scroll-snap-type: x mandatory;
   anchor-name: --my-carousel;
   scroll-behavior: smooth;
-  max-width: 35.125rem;
+  max-width: 46.875rem;
   margin: 0 auto;
 }
 ul.case-study-carousel li {
@@ -2177,7 +2185,6 @@ ul.case-study-carousel + a svg {
 form {
   max-width: 26.5rem;
   margin: 0 auto;
-  margin-bottom: 52px;
 }
 
 input, textarea, label {
@@ -2332,6 +2339,9 @@ lite-youtube.lty-activated > .lty-playbtn {
   width: 1px;
 }
 
+footer {
+  padding-top: 2.5rem;
+}
 footer p {
   font-size: 1.5rem;
   font-family: var(--font-theme-family-serif);

@@ -74,17 +74,16 @@
             <main>
                 <section>{{ content | safe }}</section>
             </main>
-            <footer>
+           
+        </div>
+         <footer>
                 <p>&copy; Phil Cheshire <span id="currentYear"> {% currentYear %}.</span> All rights reserved.</p>
             </footer>
             <script>document.querySelector("#currentYear").textContent = new Date().getFullYear();</script>
             <!-- <script src="./page.js"></script> -->
-        </div>
-        <script type="module" src="/assets/js/dialog-triggers.js">
+            <script type="module" src="/assets/js/dialog-triggers.js">
             // import { trapFocusInDialog } from '${ctx.contextPath}/.resources/goodthings-magnolia/webresources/js/trap-dialog-focus.js';
-           
             // window.trapFocusInDialog = trapFocusInDialog;
-
         </script>
         {% set dialogClass = "dialog--mobile-menu" %}
         {% include 'dialog.njk' %}
@@ -92,7 +91,7 @@
             <script src="/assets/js/youtube-hide-film-tags.js"></script>
         {% endif %}
         {% if gallery %}
-            <script type="module" src="/assets/js/vendor/gallery.js"></script>
+            <script type="module" src="{{ '/assets/js/vendor/gallery.js' | url }}"></script>
         {% endif %}
     </body>
 </html>

@@ -1,4 +1,5 @@
 @use "simple-grid" as *;
+@use "functions" as *;
 
 html {
     background-color: var(--color-theme-site-background);
@@ -8,6 +9,7 @@ body {
     padding: 0;
     font-family: var(--font-theme-family-sans-serif);
     position: relative;
+    padding-bottom: 2.5rem;
 
     @include breakpoint(large) {
         padding: 3.5rem;
@@ -15,10 +17,9 @@ body {
 }
 
 .site-container {
-    max-width: 1440px;
+    max-width: rem-calc(1440);
     margin: 0 auto;
     padding: 2.25rem 1.5rem 3.25rem;
-    height: 100vh;
     @include breakpoint(small) {
         padding: 3rem 2.25rem 3rem;
     }

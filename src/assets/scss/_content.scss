@@ -1,13 +1,21 @@
 @use "functions" as *;
 @use "simple-grid" as *;
 
+p, p.lead {
+    max-width: rem-calc(750);
+    margin: 0 auto spacing(1.5) auto;
+}
+
 .cms-richtext {
     ul, ol {
-    font-size: var(--font-theme-size-body);
-    margin-left: spacing(1.25);
+        max-width: rem-calc(750);
+        margin: 0 auto spacing(1.5) auto;
         li {
-            padding-bottom: spacing(1)
+            padding-bottom: spacing(1);
         }
+    }
+    ol {
+        padding-left: spacing(1.25);
     }
 }
 
@@ -37,7 +45,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: rem-calc(68);
+    margin-bottom: rem-calc(48);
     flex-direction: column;
     @include breakpoint(medium) {
         flex-direction: row;
@@ -217,3 +225,11 @@ hr {
         margin: spacing(1.5) auto spacing(2.75); 
     }
 }
+
+.case-study-detail {
+   background-image: url(../images/case-study-rotated.svg);
+   background-repeat: no-repeat;
+   background-position: 7% 1rem;
+
+}
+

@@ -78,17 +78,16 @@ p {
     font-family: var(--font-theme-family-sans-serif); 
 }
 
-main p {
-    font-size: var(--font-theme-size-body);
-    max-width: rem-calc(900);
-    margin: 0 auto;
-    &:first-of-type {
-        margin-bottom: rem-calc(44);
-        font-size: var(--font-theme-size-body-larger);
-    }
-    margin-bottom: spacing(1.5);
-    &:last-of-type {
-        margin-bottom: rem-calc(52);
+main {
+    section {
+        p, ul, ol {
+            font-size: var(--font-theme-size-body);  
+        }
+        p {
+            &.lead {
+                font-size: var(--font-theme-size-body-larger);
+            }
+        }
     }
 }
 
