@@ -5,7 +5,7 @@ eleventyComputed:
 headerClass: 'secondary'
 ---
 <h1>{{ talkToMe.fields.tertiaryPageHeading }}</h1>
-{{ talkToMe.fields.tertiaryPageContent | toHtml | safe }}
+<p class="lead">{{ talkToMe.fields.tertiaryPageIntro }}</p>
 <form action="https://api.web3forms.com/submit" method="POST" id="talkToMeForm" novalidate class="form">
     <input type="hidden" name="access_key" value="43bc6348-5660-4a5e-8eb9-dfcdb6c88c9a">
     <div class="form__item-wrapper">

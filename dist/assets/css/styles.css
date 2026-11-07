@@ -141,7 +141,7 @@ textarea,
   --color-theme-lightest: #ffffff;
   --color-theme-darkest: #291720;
   --color-theme-darkest-light: #744950;
-  --color-theme-danger: #EB0105;
+  --color-theme-danger: #E40105;
   --color-theme-neutral: #D4D4D4;
   --font-theme-family-serif: 'Kiwi Maru', Georgia, Courier New, serif;
   --font-theme-family-sans-serif: 'Open Sans', Arial, Helvetica, sans-serif;
@@ -1870,6 +1870,10 @@ dialog.dialog--mobile-menu {
 p, p.lead {
   max-width: 46.875rem;
   margin: 0 auto 1.5rem auto;
+}
+
+p.lead {
+  margin-bottom: 2rem;
 }
 
 .cms-richtext ul, .cms-richtext ol {

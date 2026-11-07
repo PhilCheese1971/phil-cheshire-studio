@@ -6,6 +6,12 @@ p, p.lead {
     margin: 0 auto spacing(1.5) auto;
 }
 
+p {
+    &.lead {
+        margin-bottom: spacing(2);
+    }
+}
+
 .cms-richtext {
     ul, ol {
         max-width: rem-calc(750);

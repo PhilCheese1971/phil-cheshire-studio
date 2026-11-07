@@ -5,4 +5,7 @@ eleventyComputed:
 headerClass: 'secondary'
 ---
 <h1>{{ aboutMe.fields.tertiaryPageHeading }}</h1>
-{{ aboutMe.fields.tertiaryPageContent | toHtml | safe }}
+<p class="lead">{{ aboutMe.fields.tertiaryPageIntro }}</p>
+<div class="cms-richtext">
+  {{ aboutMe.fields.tertiaryPageContent | toHtml | safe }}
+</div>

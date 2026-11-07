@@ -6,7 +6,10 @@ eleventyComputed:
 headerClass: 'secondary'
 ---
 <h1>{{ otherInterests.fields.tertiaryPageHeading }}</h1>
-{{ otherInterests.fields.tertiaryPageContent | toHtml | safe }}
+<p class="lead">{{ otherInterests.fields.tertiaryPageIntro }}</p>
+<div class="cms-richtext">
+  {{ otherInterests.fields.tertiaryPageContent | toHtml | safe }}
+</div>
 <div class="pswp-gallery" id="gallery" data-base="{{ '/' | url }}">
   {% for image in otherInterests.fields.otherInterestsGallery %}
     {% set full = image | ctfFull(2000) %}
