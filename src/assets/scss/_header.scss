@@ -19,7 +19,7 @@ header {
                     min-width: rem-calc(178);
                 }
                 @include breakpoint(medium) {
-                    width: rem-calc(264);
+                    width: rem-calc(248);
                 }
             }
             &--secondary {
