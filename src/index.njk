@@ -2,13 +2,15 @@
 layout: base.njk
 title:
     PhilCheshire.studio
-headerContent:
-    <div class="col-large-6 show-for-large">
-        <div class="heading-one-and-strapline heading-one-and-strapline--desktop">
-            <h1>WELCOME</h1>
-            <p>Let's make the digital world a better place.</p>
+eleventyComputed:
+    headerContent:
+        <div class="col-small-7 show-for-small hide-for-medium">
+            {% include "header-home-images.njk" %}
         </div>
-    </div>
+        <div class="col-medium-6 show-for-medium">
+            {% include "header-home-images.njk" %}
+        </div>
+siteContainerClass: 'home'
 ---
 <div class="heading-one-and-strapline heading-one-and-strapline--mobile hide-for-large">
     <h1>WELCOME</h1>

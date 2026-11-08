@@ -78,10 +78,7 @@ $breakpoints: (
 }
 
 // Show / hide utilities (mobile first, min-width only)
-//
-// .hide-for-medium        : hidden from medium and up
-// .show-for-medium        : hidden by default, shown as display: block from medium and up
-// .show-for-medium-flex   : same, but shown as display: flex (also -grid, -inline, -inline-block)
+
 $show-displays: (flex, grid, inline, inline-block);
 
 @each $name, $width in $breakpoints {

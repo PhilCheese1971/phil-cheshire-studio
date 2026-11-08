@@ -10,13 +10,35 @@ header {
         margin-bottom: 3.25rem;
     }
     img {
-        width: rem-calc(204);
-        min-width: rem-calc(178);
+        &.logo {
+            &--home {
+                width: rem-calc(220);
+                min-width: rem-calc(220);
+                @include breakpoint(small) {
+                    width: rem-calc(232);
+                    min-width: rem-calc(178);
+                }
+                @include breakpoint(medium) {
+                    width: rem-calc(264);
+                }
+            }
+            &--secondary {
+                width: rem-calc(204);
+                min-width: rem-calc(178);
+                @include breakpoint(large) {
+                    width: rem-calc(226);
+                }
+            }
+           
+        } 
+    }
+}
 
-        @include breakpoint(large) {
-            width: rem-calc(226);
-        }
-        
-        
+.header {
+    &__home-images {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: -3.25rem;
     }
 }

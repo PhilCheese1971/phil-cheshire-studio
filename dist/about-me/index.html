@@ -18,14 +18,16 @@
     </head>
     
     <body>
-        <div class="site-container">
+        <div class="site-container ">
             <header class="header grid secondary">
                     <div class="col-3">
-                        <a href="/" aria-label="Go to homepage"><img src="/assets/images/logo.svg" alt="Site logo"></a>
+                        
+                            <a href="/" aria-label="Go to homepage"><img src="/assets/images/logo.svg" alt="Site logo" class="logo--secondary"></a>
+                        
                     </div>
                     
-                        <div class="show-for-large col-large-6">
-                            <nav class="menu menu--main menu--main--desktop-tablet " aria-label="Main site menu">
+                        <div class="col-medium-6 show-for-medium">
+                            <nav class="menu menu--main menu--main--desktop-tablet" aria-label="Main site menu">
                                 
 
     <ul>
@@ -56,7 +58,7 @@
                             </nav>
                         </div>
                     
-                    <div class="col-large-3 show-for-large">
+                    <div class="col-medium-3 show-for-medium">
                         <nav class="menu menu--global menu--global--desktop-tablet" aria-label="Tertiary site menu">
                             <ul>
                                 
@@ -82,17 +84,31 @@
                                     </li>
                                 
                             </ul>
-                    </nav>
+                        </nav>
                     </div>
-                    <div class="col-9 hide-for-large mobile-menu-wrapper">
-                        <button class="menu-button" type="button" data-target="mobile-menu-dialog" data-dialogtrigger> 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="41" fill="none" viewBox="0 0 52 41">
-                                <path fill="currentcolor" d="M2.594 41a2.5 2.5 0 0 1-1.836-.764A2.53 2.53 0 0 1 0 38.384q0-1.086.758-1.856a2.48 2.48 0 0 1 1.836-.768h46.773q1.093 0 1.863.773t.77 1.87-.77 1.848-1.863.749zm0-11.943q-1.077 0-1.836-.762Q0 27.535 0 26.425t.758-1.859q.759-.75 1.836-.75h46.773q1.093 0 1.863.762t.77 1.87-.77 1.86-1.863.75zm0-11.834q-1.077 0-1.836-.761Q0 15.7 0 14.59q0-1.11.758-1.86.759-.748 1.836-.748h46.773q1.093 0 1.863.761t.77 1.871-.77 1.859-1.863.749zm0-11.982q-1.077 0-1.836-.765A2.53 2.53 0 0 1 0 2.624Q0 1.538.758.77A2.48 2.48 0 0 1 2.594 0h46.773q1.093 0 1.863.773t.77 1.87q0 1.1-.77 1.848-.77.75-1.863.75z"/>
-                            </svg>
-                                <span class="visually-hidden">Open mobile menu</span>
-                        </button>
-                    </div>
-                
+                    
+                        
+                    
+                    
+    
+    
+
+<div class="col-9 hide-for-medium mobile-menu-wrapper">
+    <button class="menu-button" type="button" data-target="mobile-menu-dialog" data-dialogtrigger aria-label="Open mobile menu"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="41" fill="none" viewBox="0 0 52 41">
+            <path fill="currentcolor" d="M2.594 41a2.5 2.5 0 0 1-1.836-.764A2.53 2.53 0 0 1 0 38.384q0-1.086.758-1.856a2.48 2.48 0 0 1 1.836-.768h46.773q1.093 0 1.863.773t.77 1.87-.77 1.848-1.863.749zm0-11.943q-1.077 0-1.836-.762Q0 27.535 0 26.425t.758-1.859q.759-.75 1.836-.75h46.773q1.093 0 1.863.762t.77 1.87-.77 1.86-1.863.75zm0-11.834q-1.077 0-1.836-.761Q0 15.7 0 14.59q0-1.11.758-1.86.759-.748 1.836-.748h46.773q1.093 0 1.863.761t.77 1.871-.77 1.859-1.863.749zm0-11.982q-1.077 0-1.836-.765A2.53 2.53 0 0 1 0 2.624Q0 1.538.758.77A2.48 2.48 0 0 1 2.594 0h46.773q1.093 0 1.863.773t.77 1.87q0 1.1-.77 1.848-.77.75-1.863.75z"/>
+        </svg>
+            <span class="visually-hidden">Open mobile menu</span>
+    </button>
+</div>
+<div class="col-small-2 hide hide-for-medium mobile-menu-wrapper">
+    <button class="menu-button" type="button" data-target="mobile-menu-dialog" data-dialogtrigger aria-label="Open mobile menu"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="41" fill="none" viewBox="0 0 52 41">
+            <path fill="currentcolor" d="M2.594 41a2.5 2.5 0 0 1-1.836-.764A2.53 2.53 0 0 1 0 38.384q0-1.086.758-1.856a2.48 2.48 0 0 1 1.836-.768h46.773q1.093 0 1.863.773t.77 1.87-.77 1.848-1.863.749zm0-11.943q-1.077 0-1.836-.762Q0 27.535 0 26.425t.758-1.859q.759-.75 1.836-.75h46.773q1.093 0 1.863.762t.77 1.87-.77 1.86-1.863.75zm0-11.834q-1.077 0-1.836-.761Q0 15.7 0 14.59q0-1.11.758-1.86.759-.748 1.836-.748h46.773q1.093 0 1.863.761t.77 1.871-.77 1.859-1.863.749zm0-11.982q-1.077 0-1.836-.765A2.53 2.53 0 0 1 0 2.624Q0 1.538.758.77A2.48 2.48 0 0 1 2.594 0h46.773q1.093 0 1.863.773t.77 1.87q0 1.1-.77 1.848-.77.75-1.863.75z"/>
+        </svg>
+            <span class="visually-hidden">Open mobile menu</span>
+    </button>
+</div>
             </header>
             <main>
                 <section><h1>About me</h1>

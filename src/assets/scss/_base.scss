@@ -16,10 +16,39 @@ body {
     }
 }
 
+a, button {
+    &:focus-visible {
+        outline-offset: 4px;
+        outline: 4px solid var(--color-theme-primary);
+        img {
+            outline-offset: 4px;
+            outline: 4px solid var(--color-theme-primary);
+        }
+
+    }
+}
+
 .site-container {
     max-width: rem-calc(1440);
+    background-color: var(--color-theme-site-container-background);
+    
+    &:not(.home) {
+       background-image: url(../images/vines-background.svg);     
+    }
+    &.home {
+        background-image: url(../images/vines-background.svg);
+        @include breakpoint(small) {
+            background-image: none;
+        }
+    }
+    
+    
+    background-repeat: no-repeat;
+    background-position-x: center;
+
     margin: 0 auto;
     padding: 2.25rem 1.5rem 3.25rem;
+    
     @include breakpoint(small) {
         padding: 3rem 2.25rem 3rem;
     }
@@ -27,7 +56,7 @@ body {
         padding: 3.75rem 3.25rem 3.25rem;
         height: auto;
     }
-    background-color: var(--color-theme-site-container-background);
+    
 }
 
 a {

@@ -1607,8 +1607,33 @@ body {
   }
 }
 
+a:focus-visible, button:focus-visible {
+  outline-offset: 4px;
+  outline: 4px solid var(--color-theme-primary);
+}
+a:focus-visible img, button:focus-visible img {
+  outline-offset: 4px;
+  outline: 4px solid var(--color-theme-primary);
+}
+
 .site-container {
   max-width: 90rem;
+  background-color: var(--color-theme-site-container-background);
+}
+.site-container:not(.home) {
+  background-image: url(../images/vines-background.svg);
+}
+.site-container.home {
+  background-image: url(../images/vines-background.svg);
+}
+@media (min-width: 768px) {
+  .site-container.home {
+    background-image: none;
+  }
+}
+.site-container {
+  background-repeat: no-repeat;
+  background-position-x: center;
   margin: 0 auto;
   padding: 2.25rem 1.5rem 3.25rem;
 }
@@ -1622,9 +1647,6 @@ body {
     padding: 3.75rem 3.25rem 3.25rem;
     height: auto;
   }
-}
-.site-container {
-  background-color: var(--color-theme-site-container-background);
 }
 
 a {
@@ -1668,7 +1690,6 @@ h1 {
 
 header h1 {
   font-size: clamp(var(--min) / 16 * 1rem, var(--intercept) / 16 * 1rem + var(--slope) * 100vw, var(--max) / 16 * 1rem);
-  margin-bottom: 0.5rem;
 }
 
 h2 {
@@ -1728,14 +1749,36 @@ header {
 header.secondary {
   margin-bottom: 3.25rem;
 }
-header img {
+header img.logo--home {
+  width: 13.75rem;
+  min-width: 13.75rem;
+}
+@media (min-width: 768px) {
+  header img.logo--home {
+    width: 14.5rem;
+    min-width: 11.125rem;
+  }
+}
+@media (min-width: 960px) {
+  header img.logo--home {
+    width: 16.5rem;
+  }
+}
+header img.logo--secondary {
   width: 12.75rem;
   min-width: 11.125rem;
 }
 @media (min-width: 1170px) {
-  header img {
+  header img.logo--secondary {
     width: 14.125rem;
   }
+}
+
+.header__home-images {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: -3.25rem;
 }
 
 nav.menu ul {

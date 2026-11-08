@@ -25,7 +25,6 @@ header h1 {
         calc(var(--intercept) / 16 * 1rem + var(--slope) * 100vw),
         calc(var(--max) / 16 * 1rem)
     );
-    margin-bottom: spacing(0.5);
 }
 
 h2 {
