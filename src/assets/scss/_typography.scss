@@ -17,6 +17,7 @@ h1 {
     );
     text-align: center;
     line-height: 1.2;
+    margin-bottom: spacing(2.5);
 }
 
 header h1 {
@@ -43,36 +44,6 @@ h3 {
     );
 }
 
-.heading-one-and-strapline {
-    &--mobile, &--desktop {
-        display: none;
-        h1 {
-            font-weight: 900;
-            font-family: var(--font-theme-family-slab-serif);
-            color: #9D818F
-        }
-        p {
-            font-size: var(--font-theme-size-body);
-            text-transform: uppercase;
-            font-family: var(--font-theme-family-serif);
-            text-wrap: balance;
-            text-align: center;
-        }
-    }
-    &--desktop {
-        h1 {
-            line-height: 104.5%;
-            text-wrap: nowrap;
-        }
-    }
-
-    &--mobile {
-        h1 {
-            margin-bottom: 0;
-        } 
-    } 
-}
-
 p {
     font-family: var(--font-theme-family-sans-serif); 
 }
@@ -85,6 +56,9 @@ main {
         p {
             &.lead {
                 font-size: var(--font-theme-size-body-larger);
+            }
+            a {
+                font-family: var(--font-theme-family-sans-serif);
             }
         }
     }

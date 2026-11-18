@@ -20,33 +20,32 @@
 <p class="lead">
   {{ heading1AndLeadParagraph.fields.leadParagraph | safe }}
 </p>
-<ul class="grid video-banners">
-  {% for panel in videoAndFilmPanels %}
-        <li class="col-12 col-medium-6 display-flex">
-          <div class="video-banners__video">
-             <span class="film-tag">{{ panel.fields.filmAndVideoTag }}</span>
-            {% set videoTitle = panel.fields.filmAndVideoHeading %}
-            {% set videoId = panel.fields.youTubeReference %}
+<ul class="grid cards cards--video">
+  {% for card in videoAndFilmCards %}
+        <li class="col-12 col-medium-6 display-flex card">
+          <div class="card__video">
+            <span class="film-tag">{{ card.fields.filmAndVideoTag }}</span>
+            {% set videoTitle = card.fields.filmAndVideoHeading %}
+            {% set videoId = card.fields.youTubeReference %}
             {% include 'youtube.njk' %}
           </div>
-          <div class="video-banners__info">
-            <div class="video-banners__info__content">
-              <h2>{{ panel.fields.filmAndVideoHeading }}</h2>
-              <p>{{ panel.fields.filmAndVideoDescription }}</p>
+          <div class="card__content">
+            <div class="card__content__description">
+              <h2>{{ card.fields.filmAndVideoHeading }}</h2>
+              <p>{{ card.fields.filmAndVideoDescription }}</p>
             </div>
-            <div class="video-banners__info__footer">
-              <hr>
+            <div class="card__footer">
+              <hr class="video-content-divider">
               <span>Editing: </span>
               <ul class="skills-list display-inline">
-                {% for skill in panel.fields.filmAndVideoEditingList %}
+                {% for skill in card.fields.filmAndVideoEditingList %}
                   <li class="display-inline">{{ skill | trim }}</li>
                 {% endfor %}
               </ul>
             </div>
-            
           </div>
         </li>
   {% else %}
-    <li>No video panels found.</li>
+    <li>No video cards found.</li>
   {% endfor %}
 </ul>

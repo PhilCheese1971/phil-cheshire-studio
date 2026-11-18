@@ -3,7 +3,7 @@
   layout: "base.njk",
   headerClass: "secondary",
   eleventyComputed: {
-    heading1AndLeadParagraph: (data) => data.recentWebWorkHeadingAndLead,
+    heading1AndLeadParagraph: (data) => data.websitesHeadingAndLead,
     currentCaseStudy: (data) => data.goodThingsNetwork,
     title: (data) => {
       const heading = [
@@ -29,8 +29,8 @@
 <div class="heading-and-skills-list-wrapper">
     <h2>{{ currentCaseStudy.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
 </div>
-<div class="grid">
-     <div class="col-12">
+<div class="case-study-detail--wrapper">
+  <div class="case-study-detail__content">
         <p class="lead">
             {{ currentCaseStudy.fields.caseStudyDetailIntro | safe }}
         </p>

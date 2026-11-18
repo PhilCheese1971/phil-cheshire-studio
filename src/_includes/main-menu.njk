@@ -1,7 +1,7 @@
 {% set mainNavLinks = [
     {
-        url: "/" ~ (recentWebWorkHeadingAndLead.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
-        label: recentWebWorkHeadingAndLead.fields.heading1Text
+        url: "/" ~ (websitesHeadingAndLead.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 
+        label: websitesHeadingAndLead.fields.heading1Text
     },
     {
         url: "/" ~ (videoAndFilmHeadingAndLead.fields.heading1Text | replace('&', 'and') | replace(' ', '-') | lower) ~ "/", 

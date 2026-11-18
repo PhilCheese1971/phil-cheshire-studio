@@ -114,6 +114,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "node_modules/photoswipe/dist": "photoswipe" });
 
   const audioEmbed = (value) => {
+    
     if (!value) return "";
     const input = String(value).trim();
 
@@ -134,22 +135,26 @@ module.exports = function (eleventyConfig) {
       "visual=false",
     ].join("&amp;");
 
-    const build = (src, title, height) =>
-      `<iframe title="${title}" src="${src}" style="margin-bottom: 2.25rem;max-width: 700px;display:block;border:0;width:100%;height:${height}px;" loading="lazy" allow="autoplay"></iframe>`;
+    const build = (src, ariaLabel, height) =>
+      `<iframe class="music-player" aria-label="${ariaLabel}" src="${src}" style="height: ${height}px;" loading="lazy" allow="autoplay"></iframe>`;
+
+    
 
     // find the src inside the pasted iframe code
     const rawSrc = (input.match(/<iframe[^>]*\ssrc=["']([^"']+)["']/i) || [])[1];
-    if (!rawSrc) return "";
+    if (!rawSrc) {
+      return "";
+    }
     const src = rawSrc.replace(/&amp;/g, "&");
 
-    // Bandcamp: keep their src, use the height from the pasted code
+    // Bandcamp
     if (src.startsWith("https://bandcamp.com/EmbeddedPlayer/")) {
       const height =
         (input.match(/height:\s*(\d+)px/i) || input.match(/height=["']?(\d+)/i) || [])[1] || 120;
-      return build(src, "Bandcamp player", height);
+      return build(src, "BandCamp player", height);
     }
 
-    // SoundCloud: pull out the track URL and rebuild with our own parameters
+    // SoundCloud 
     if (src.startsWith("https://w.soundcloud.com/player/")) {
       const trackUrl = new URL(src).searchParams.get("url");
       if (!trackUrl) return "";
@@ -160,6 +165,8 @@ module.exports = function (eleventyConfig) {
 
     return ""; // not a recognised player: output nothing
   };
+
+  const audioStreaming = (value) => `<figure class="mp3-player"><figcaption>${value.fields.title}</figcaption><audio loading="lazy" controls controlsList="nodownload noplaybackrate" src="${value.fields.file.url}"></audio></figure>`;
 
   eleventyConfig.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
 
@@ -182,6 +189,10 @@ module.exports = function (eleventyConfig) {
           const fields = node.data.target.fields;
 
           if (fields.musicEmbed) return audioEmbed(fields.musicEmbed);
+
+          if (fields.musicStreamingFile) {
+            return audioStreaming(fields.musicStreamingFile);
+          }
 
           if (fields.columnName) return fields.columnName;
 

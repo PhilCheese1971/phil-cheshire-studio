@@ -2,7 +2,7 @@
 
 form {
   max-width: rem-calc(424);
-  margin: 0 auto;
+  margin: 0 auto 2.5rem auto;
 }
 
 input, textarea, label {
@@ -64,5 +64,9 @@ button {
 
 textarea {
   height: rem-calc(148);
+  font-size: var(--font-theme-size-body);
+  font-family: var(--font-theme-family-sans-serif);
+  padding: 0.5rem;
+  border: 1px solid var(--color-theme-darkest);
 }
 

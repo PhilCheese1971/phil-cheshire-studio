@@ -7,8 +7,9 @@ headerClass: 'secondary'
 ---
 <h1>{{ otherInterests.fields.tertiaryPageHeading }}</h1>
 <p class="lead">{{ otherInterests.fields.tertiaryPageIntro }}</p>
+{{ otherInterests.fields.tertiaryPageContent | toHtml | safe }}
 <div class="cms-richtext">
-  {{ otherInterests.fields.tertiaryPageContent | toHtml | safe }}
+  {{ otherInterests.fields.secondOtherInterest | toHtml | safe }}
 </div>
 <div class="pswp-gallery" id="gallery" data-base="{{ '/' | url }}">
   {% for image in otherInterests.fields.otherInterestsGallery %}
@@ -26,4 +27,3 @@ headerClass: 'secondary'
     </a>
   {% endfor %}
 </div>
-{{ otherInterests.fields.secondOtherInterest | toHtml | safe }}

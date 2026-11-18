@@ -1,0 +1,28 @@
+@use "variables" as *;
+
+iframe {
+    &.music-player {
+        margin-bottom: 2.25rem;
+        max-width: var(--media-player-max-vw);
+        display: block;
+        border: 0;
+        width: 100%;
+    }
+}
+
+.mp3-player {
+    padding: 1rem;
+    background-color: white;
+    max-width: var(--media-player-max-vw);
+    border: 1px solid var(--color-theme-neutral);
+    background:linear-gradient(0deg, rgba(217, 3, 104, 0.15), rgba(217, 3, 104, 0.15)), url(../images/vines-background.svg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    figcaption {
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    audio {
+       width: 100%
+    }
+}

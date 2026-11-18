@@ -1,5 +1,6 @@
 const submitButton = document.querySelector('#submitButton');
 
+// Sorting the accessibility of the hCaptcha
 const labelCaptchaFields = () => {
   const captchaFields = document.querySelectorAll(
     'textarea[name="h-captcha-response"]'

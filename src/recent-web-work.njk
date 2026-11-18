@@ -3,7 +3,7 @@
   layout: "base.njk",
   headerClass: "secondary",
   eleventyComputed: {
-    heading1AndLeadParagraph: (data) => data.recentWebWorkHeadingAndLead,
+    heading1AndLeadParagraph: (data) => data.websitesHeadingAndLead,
     title: (data) => {
       const heading = data.heading1AndLeadParagraph?.fields?.heading1Text;
       if (!heading) return "PhilCheshire.studio";
@@ -22,18 +22,21 @@
     {{ heading1AndLeadParagraph.fields.leadParagraph | safe }}
   </p>
 </div>
-<ul class="web-banners">
-  {% for banner in caseStudyBanners %}
-      <li class="grid">
-        <div class="banner-background col-12 col-medium-6"{% if banner.fields.projectPhoto %} style="background-image: url('https:{{ banner.fields.projectPhoto.fields.file.url }}?fm=webp&w=396&q=80');"{% endif %}></div>        
-        <div class="table-and-link col-12 col-medium-6">
+<ul class="cards cards--web">
+  {% for card in caseStudyCards %}
+      <li class="grid card">
+        <div aria-hidden="true" class="card__image col-12 col-medium-6"{% if card.fields.projectPhoto %} style="background-image: url('https:{{ card.fields.projectPhoto.fields.file.url }}?fm=webp&w=396&q=80');"{% endif %}>
+        </div>        
+        <div class="card__content col-12 col-medium-6">
             <div class="cms-richtext">
-              {{ banner.fields.projectInfoTable | toHtml | safe }}
-              <a href="/case-studies/{{ banner.fields.projectTitle | replace(' ', '-') | lower }}">Read more about {{ banner.fields.projectTitle }} ></a>
+              {{ card.fields.projectInfoTable | toHtml | safe }}
+              {% set link =  card.fields.projectLink %}
+              {% set linkText = " the " + card.fields.projectTitle + " site" %}
+              {% include 'link-in-new-window.njk' %}
             </div>
         </div>
       </li>
   {% else %}
-    <li>No banners found.</li>
+    <li>No cards found.</li>
   {% endfor %}
 </ul>

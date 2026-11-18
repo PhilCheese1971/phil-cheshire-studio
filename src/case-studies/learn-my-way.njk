@@ -3,7 +3,7 @@
   layout: "base.njk",
   headerClass: "secondary",
   eleventyComputed: {
-    heading1AndLeadParagraph: (data) => data.recentWebWorkHeadingAndLead,
+    heading1AndLeadParagraph: (data) => data.websitesHeadingAndLead,
     currentCaseStudy: (data) => data.learnMyWay,
     title: (data) => {
       const heading = [
@@ -23,24 +23,22 @@
 }
 ---
 <div class="heading-and-link-wrapper">
-    <a href="/{{ heading1AndLeadParagraph.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; back to {{ heading1AndLeadParagraph.fields.heading1Text }}</a>
+    <a href="/{{ heading1AndLeadParagraph.fields.heading1Text | replace(' ', '-') | lower }}/">&lt; <strong>{{ heading1AndLeadParagraph.fields.heading1Text }}</strong></a>
     <h1>{{ currentCaseStudy.fields.caseStudyDetailHeading }}</h1>
 </div>
 <div class="heading-and-skills-list-wrapper">
     <h2>{{ currentCaseStudy.fields.caseStudyDetailProjectType }}</h2> {% include 'web-detail-skills-list.njk' %}
 </div>
-<div class="grid">
-     <div class="col-12">
-        <div class="case-study-detail">
-        <p class="lead">{{ currentCaseStudy.fields.caseStudyDetailIntro | safe }}</p>
-        {% set caseStudyCarousel = currentCaseStudy %}
-        {% include 'image-carousel.njk' %}
-        {% set link =  currentCaseStudy.fields.caseStudyDetailProjectLink %}
-        {% set linkText = currentCaseStudy.fields.caseStudyDetailHeading %}
-        {% include 'link-in-new-window.njk' %}    
-        <div class="cms-richtext">
-            {{ currentCaseStudy.fields.caseStudyDetailContent | toHtml | safe }}
-        </div>
-        </div>
+<div class="case-study-detail--wrapper">
+  <div class="case-study-detail__content">
+    <p class="lead">{{ currentCaseStudy.fields.caseStudyDetailIntro | safe }}</p>
+    {% set caseStudyCarousel = currentCaseStudy %}
+    {% include 'image-carousel.njk' %}
+    {% set link =  currentCaseStudy.fields.caseStudyDetailProjectLink %}
+    {% set linkText = currentCaseStudy.fields.caseStudyDetailHeading %}
+    {% include 'link-in-new-window.njk' %}    
+    <div class="cms-richtext">
+        {{ currentCaseStudy.fields.caseStudyDetailContent | toHtml | safe }}
     </div>
+  </div>
 </div>

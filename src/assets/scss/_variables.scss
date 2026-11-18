@@ -1,11 +1,12 @@
 @use "functions" as *;
 
+$fluid-max-vw: 1440;
+
 :root {
   // Colors
   --color-theme-site-background: #EEEEEE;
   --color-theme-site-container-background: #F6F6F4;
   
-
   --color-theme-primary: #D90368;
   --color-theme-primary-light: #F5ECEE;
   --color-theme-primary-tint: #FBD5E7;
@@ -36,6 +37,8 @@
   // Container sizes
   --fluid-min-vw: 412;
   --fluid-max-vw: 1440;
+
+  --media-player-max-vw: #{rem-calc(700)};
 }
 
 // Headings
@@ -49,11 +52,6 @@ header h1 {
   --max: 108;
 }
 
-.heading-one-and-strapline--mobile h1 {
-  --min: 60;
-  --max: 144;
-}
-
 h2 {
   --min: 24;
   --max: 32;
@@ -61,7 +59,7 @@ h2 {
 
 h3 {
   --min: 22;
-  --max: 32;
+  --max: 28;
 }
 
 h1, h2, h3, .home-banner span {

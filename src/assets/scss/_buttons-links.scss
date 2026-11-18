@@ -3,7 +3,6 @@
 .menu-button, .close-button {
   color: var(--color-theme-primary);
   border: none;
-  
   transition: color .3s ease-in-out;
   &:hover {
     color: var(--color-theme-darkest)
@@ -22,7 +21,43 @@
   align-self: flex-start;
 }
 
-.mobile-menu-wrapper {
-  display: flex;
-  justify-content: flex-end;
+
+
+// Photoswipe icons
+
+.pswp__icn {
+  width: 84px!important;
+  height: 84px!important;
+  transition: fill 0.3s ease-in-out;
+}
+
+.pswp__icn-shadow {
+  display: none;
+}
+
+.pswp__button {
+  width: 90px!important;
+  height: 90px!important;
+  opacity: 1;
+  &:hover {
+    .pswp__icn {
+        fill: var(--color-theme-primary)!important;
+    }
+  }
+}
+
+.cards--web {
+  .card__content {
+    a {
+      &:hover {
+        background-color: var(--color-theme-secondary);
+        color: var(--color-theme-darkest);
+        svg {
+          &.external-link-icon {
+            fill: var(--color-theme-darkest);
+          }
+        }
+      }
+    }
+  }
 }

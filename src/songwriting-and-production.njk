@@ -17,9 +17,14 @@
 }
 ---
 <h1>{{ heading1AndLeadParagraph.fields.heading1Text }}</h1>
+<a href="#songwriting">Jump to songwriting</a> | <a href="#production">Jump to production</a>
 <p class="lead">
   {{ heading1AndLeadParagraph.fields.leadParagraph | safe }}
 </p>
-<div class="cms-richtext">
+<div class="cms-richtext" id="songwriting">
   {{ songwritingAndProduction.fields.songwritingTextAndInlineMusic | toHtml | safe }}
+</div>
+<hr>
+<div class="cms-richtext" id="production">
+  {{ songwritingAndProduction.fields.productionTextAndInlineMusic | toHtml | safe }}
 </div>

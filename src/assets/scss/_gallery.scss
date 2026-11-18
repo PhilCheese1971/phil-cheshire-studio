@@ -1,9 +1,10 @@
 .pswp-gallery {
-    max-width: 70rem; margin-inline: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  --row-height: 16.5rem;   // try 8rem, 10rem, 14rem and see where the wraps fall
+    max-width: 70rem; 
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    --row-height: 16.5rem;   // try 8rem, 10rem, 14rem and see where the wraps fall
 
   a {
     display: block;

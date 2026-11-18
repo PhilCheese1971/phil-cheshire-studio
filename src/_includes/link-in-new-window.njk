@@ -1,2 +1,1 @@
-
-<a href="{{ link }}" target="_blank" rel="noreferrer">Visit {{ linkText }}{% svg "open_in_new_24dp", "external-link-icon" %}</a>
+<a href="{{ link }}" target="_blank" rel="noreferrer">Visit {% if 'AI' in link %}the{% endif %} {{ linkText }}{% svg "open_in_new_24dp", "external-link-icon" %}</a>

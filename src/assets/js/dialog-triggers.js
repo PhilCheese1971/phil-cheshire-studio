@@ -60,7 +60,7 @@ function setBodyScrollLock(open) {
 
 function maintainWindowPosition(dialog) {
     verticalWindowScrollPosition = window.pageYOffset;
-    setTopPosition(body)
+    setTopPosition(body);
     html.style.scrollBehavior = "auto";
     document.addEventListener('touchmove', stopBodyScrollOnMobile, {passive: false});
     setBodyScrollLock(true);
