@@ -1,15 +1,28 @@
 @use "functions" as *;
 @use "simple-grid" as *;
 
+h1 {
+    margin-bottom: spacing(2.5);
+    &.has-jump-to-nav {
+        margin-bottom: 1rem;
+    }   
+}
+
 p,
 p.lead {
     max-width: rem-calc(750);
     margin: 0 auto spacing(1.5) auto;
 }
-
 p {
     &.lead {
         margin-bottom: spacing(2);
+    }
+}
+.home {
+    p {
+        &.lead {
+            margin-bottom: spacing(2.5);
+        }
     }
 }
 
