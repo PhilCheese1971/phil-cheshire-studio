@@ -16,8 +16,22 @@
   },
 }
 ---
-<h1>{{ heading1AndLeadParagraph.fields.heading1Text }}</h1>
-<a href="#songwriting">Jump to songwriting</a> | <a href="#production">Jump to production</a>
+<h1 class="has-jump-to-nav">{{ heading1AndLeadParagraph.fields.heading1Text }}</h1>
+{% set jumpToLinks = [
+    {
+        url: "#songwriting", 
+        label: "Songwriting"
+    },
+    {
+        url: "#production", 
+        label: "Production"
+    },
+    {
+        url: "#latest", 
+        label: "Latest releases"
+    }
+] %}
+{% include "jump-to-menu.njk" %}
 <p class="lead">
   {{ heading1AndLeadParagraph.fields.leadParagraph | safe }}
 </p>
@@ -27,4 +41,7 @@
 <hr>
 <div class="cms-richtext" id="production">
   {{ songwritingAndProduction.fields.productionTextAndInlineMusic | toHtml | safe }}
+</div>
+<div class="cms-richtext" id="latest">
+  {{ songwritingAndProduction.fields.latestReleases | toHtml | safe }}
 </div>

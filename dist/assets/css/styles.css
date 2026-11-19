@@ -1685,6 +1685,9 @@ h1 {
   line-height: 1.2;
   margin-bottom: 2.5rem;
 }
+h1.has-jump-to-nav {
+  margin-bottom: 1rem;
+}
 
 header h1 {
   font-size: clamp(var(--min) / 16 * 1rem, var(--intercept) / 16 * 1rem + var(--slope) * 100vw, var(--max) / 16 * 1rem);
@@ -1758,22 +1761,33 @@ header img.logo--secondary {
   align-items: flex-start;
   margin-top: -3.75rem;
 }
+.header__home-images__text {
+  font-family: var(--font-theme-family-slab-serif);
+  font-size: var(--font-theme-size-body-larger);
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.home header {
+  margin-bottom: 2.5rem;
+}
 
 nav.menu ul {
   font-weight: 500;
+  list-style: none;
 }
 nav.menu ul li span {
   font-family: "Kiwi Maru", serif;
   color: var(--color-theme-darkest);
 }
 nav.menu--global ul {
-  list-style: none;
   text-align: right;
 }
 nav.menu--home ul {
   max-width: 83.75rem;
   margin: 0 auto 3rem;
-  list-style: none;
 }
 nav.menu--home ul li {
   display: flex;
@@ -1818,23 +1832,23 @@ nav.menu--global ul li:first-of-type {
 }
 nav.menu--main {
   background-color: var(--color-theme-primary-light);
-  margin: -4rem auto 0;
+  margin: -3rem auto 0;
   width: 100%;
 }
 @media (min-width: 1170px) {
   nav.menu--main {
     width: max-content;
+    margin-top: -4rem;
   }
 }
 nav.menu--main ul {
-  list-style: none;
   text-align: center;
   font-size: 1.5rem;
   padding: 2rem 3rem;
 }
 nav.menu--main ul li {
   display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.46;
 }
 nav.menu--main ul li:last-of-type {
@@ -1845,6 +1859,23 @@ nav.menu--main--mobile {
   margin-top: 10.75rem;
   padding-left: 0;
   padding-right: 0;
+}
+nav.menu--jump-to {
+  display: flex;
+  justify-content: center;
+}
+nav.menu--jump-to ul {
+  margin-bottom: 2rem;
+}
+nav.menu--jump-to ul li {
+  display: inline;
+  padding-right: 1rem;
+}
+nav.menu--jump-to ul li:not(:first-of-type) {
+  padding-left: 0.75rem;
+}
+nav.menu--jump-to ul li:not(:last-of-type) {
+  border-right: 1px solid var(--color-theme-darkest);
 }
 nav.menu--mobile ul {
   text-align: center;
@@ -1938,7 +1969,7 @@ p.lead {
 .cms-richtext ol li {
   padding-bottom: 1rem;
 }
-.cms-richtext ol {
+.cms-richtext ol, .cms-richtext ul {
   padding-left: 1.25rem;
 }
 

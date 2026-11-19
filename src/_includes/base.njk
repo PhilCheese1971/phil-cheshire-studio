@@ -33,46 +33,44 @@
     <body>
         <div class="site-container {{ siteContainerClass }}">
             <header class="header grid {{ headerClass }}">
-                    <div class="col-3">
-                        {% if page.url == '/' %}
-                            <h1 aria-label="Welcome to Phil Cheshire's portfolio site">
-                                {% homeLogoLink "/" %}
-                            </h1>
-                        {% else %}
-                            {% homeLogoLink "/" %}
-                        {% endif %}
-                    </div>
+                <div class="col-3">
                     {% if page.url == '/' %}
-                        {{ headerContent | safe }}
+                        <h1 aria-label="Welcome to Phil Cheshire's portfolio site">
+                            {% homeLogoLink "/" %}
+                        </h1>
                     {% else %}
-                        <div class="col-medium-6 show-for-medium">
-                            <nav class="menu menu--main menu--main--desktop-tablet" aria-label="Main site menu">
-                                {% include "main-menu.njk" %}
-                            </nav>
-                        </div>
+                        {% homeLogoLink "/" %}
                     {% endif %}
-                    <div class="col-medium-3 show-for-medium">
-                        <nav class="menu menu--global menu--global--desktop-tablet" aria-label="Tertiary site menu">
-                            <ul>
-                                {% for navItem in tertiaryNavItems %}
-                                    {% set isCurrent = (page.url == navItem.url) %}
-                                    <li>
-                                        {% if isCurrent %}
-                                            <span aria-current="page">{{ navItem.label }}</span>
-                                        {% else %}
-                                            <a href="{{ navItem.url }}">{{ navItem.label }}</a>
-                                        {% endif %}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </nav>
+                </div>
+                {% if page.url == '/' %}
+                    {{ headerContent | safe }}
+                {% else %}
+                    <div class="col-medium-6 show-for-medium">
+                        {% include "main-menu.njk" %}
                     </div>
-                    {% if page.url != '/' %}
-                        {% set secondary = true %}
-                    {% else %}
-                        {% set secondary = false %}
-                    {% endif %}
-                    {% include "mobile-menu-column.njk" %}
+                {% endif %}
+                <div class="col-medium-3 show-for-medium">
+                    <nav class="menu menu--global menu--global--desktop-tablet" aria-label="Tertiary site menu">
+                        <ul>
+                            {% for navItem in tertiaryNavItems %}
+                                {% set isCurrent = (page.url == navItem.url) %}
+                                <li>
+                                    {% if isCurrent %}
+                                        <span aria-current="page">{{ navItem.label }}</span>
+                                    {% else %}
+                                        <a href="{{ navItem.url }}">{{ navItem.label }}</a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+                {% if page.url != '/' %}
+                    {% set secondary = true %}
+                {% else %}
+                    {% set secondary = false %}
+                {% endif %}
+                {% include "mobile-menu-column.njk" %}
             </header>
             <main>
                 <section>{{ content | safe }}</section>
