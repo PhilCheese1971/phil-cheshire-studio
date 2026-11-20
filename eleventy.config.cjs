@@ -7,11 +7,15 @@ const sass = require("sass");
 const path = require("path");
 const fs = require("fs");
 
-const INTERNAL_HOSTS = ["yourdomain.com", "www.yourdomain.com", "localhost:8080", "127.0.0.1"];
+const INTERNAL_HOSTS = ["philcheese.studio", "www.philcheese.studio", "localhost:8080", "127.0.0.1"];
 
 const isInternalLink = (uri) => {
-  if (uri.startsWith("//")) return false; // protocol-relative link to another site
-  if (/^(\/|#|mailto:|tel:)/.test(uri)) return true;
+  if (uri.startsWith("//")) {
+    return false; // protocol-relative link to another site
+  }
+  if (/^(\/|#|mailto:|tel:)/.test(uri)) {
+    return true;
+  }
   try {
     return INTERNAL_HOSTS.includes(new URL(uri).hostname);
   } catch {
@@ -139,8 +143,6 @@ module.exports = function (eleventyConfig) {
     const build = (src, ariaLabel, height) =>
       `<iframe class="music-player" aria-label="${ariaLabel}" src="${src}" style="height: ${height}px;" loading="lazy" allow="autoplay"></iframe>`;
 
-    
-
     // find the src inside the pasted iframe code
     const rawSrc = (input.match(/<iframe[^>]*\ssrc=["']([^"']+)["']/i) || [])[1];
     if (!rawSrc) {
@@ -158,7 +160,9 @@ module.exports = function (eleventyConfig) {
     // SoundCloud 
     if (src.startsWith("https://w.soundcloud.com/player/")) {
       const trackUrl = new URL(src).searchParams.get("url");
-      if (!trackUrl) return "";
+      if (!trackUrl) {
+        return "";
+      }
       const rebuilt =
         "https://w.soundcloud.com/player/?url=" + encodeURIComponent(trackUrl) + "&amp;" + scParams;
       return build(rebuilt, "SoundCloud player", SOUNDCLOUD_HEIGHT);
@@ -185,17 +189,23 @@ module.exports = function (eleventyConfig) {
         [BLOCKS.TABLE_HEADER_CELL]: (node, next) => `<th>${cellContent(node, next)}</th>`,
         [INLINES.EMBEDDED_ENTRY]: (node) => {
 
-          if (!node?.data?.target?.fields) return '';
+          if (!node?.data?.target?.fields) {
+            return '';
+          }
 
           const fields = node.data.target.fields;
 
-          if (fields.musicEmbed) return audioEmbed(fields.musicEmbed);
+          if (fields.musicEmbed) {
+            return audioEmbed(fields.musicEmbed);
+          }
 
           if (fields.musicStreamingFile) {
             return audioStreaming(fields.musicStreamingFile);
           }
 
-          if (fields.columnName) return fields.columnName;
+          if (fields.columnName) {
+            return fields.columnName;
+          }
 
           const skills = Array.isArray(fields.skillsList) ? fields.skillsList : [];
 
@@ -216,7 +226,7 @@ module.exports = function (eleventyConfig) {
         [INLINES.HYPERLINK]: (node, next) => {
           const uri = node.data.uri;
           const internalLink = isInternalLink(uri);
-          const attrs = internalLink ? "" : `target="_blank" rel="noopener noreferrer" aria-label="${next(node.content)} - opens in a new window or tab"`;
+          const attrs = internalLink ? "" : ` target="_blank" rel="noopener noreferrer" aria-label="${next(node.content)} - opens in a new window or tab"`;
           const getsIcon = internalLink ? "" : `${formatInlineSvg("open_in_new_24dp", "external-link-icon")}`
           return `<a href="${uri}"${attrs}>${next(node.content)}${getsIcon}</a>`;
         },
