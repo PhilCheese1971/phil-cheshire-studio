@@ -6,12 +6,12 @@
     heading1AndLeadParagraph: (data) => data.songwritingHeadingAndLead,
     title: (data) => {
       const heading = data.heading1AndLeadParagraph?.fields?.heading1Text;
-      if (!heading) return "PhilCheshire.studio";
+      if (!heading) return "Phil Cheese Studio";
       const text = heading
         .replace(/&/g, "and")
         .toLowerCase()
         .replace(/\b\w/g, (c) => c.toUpperCase());
-      return `${text} > PhilCheshire.studio`;
+      return `${text} > Phil Cheese Studio`;
     },
   },
 }

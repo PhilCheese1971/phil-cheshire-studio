@@ -1,8 +1,8 @@
 <nav class="menu--jump-to">
-  <ul>
+  <ul class="text-center">
      {% for navLink in jumpToLinks %}
         <li>
-            <a href="{{ navLink.url }}">jump to {{ navLink.label }}</a>
+            <a href="{{ navLink.url }}">{{ navLink.label }}</a>
         </li>
     {% endfor %}
   </ul>

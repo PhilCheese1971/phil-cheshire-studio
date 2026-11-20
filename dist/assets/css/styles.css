@@ -1864,11 +1864,11 @@ nav.menu--jump-to ul {
   margin-bottom: 2rem;
 }
 nav.menu--jump-to ul li {
-  display: inline;
+  display: inline-block;
   padding-right: 1rem;
 }
 nav.menu--jump-to ul li:not(:first-of-type) {
-  padding-left: 0.75rem;
+  padding-left: 1rem;
 }
 nav.menu--jump-to ul li:not(:last-of-type) {
   border-right: 1px solid var(--color-theme-darkest);
@@ -2484,10 +2484,10 @@ iframe.music-player {
   padding: 1rem;
   background-color: white;
   max-width: var(--media-player-max-vw);
-  border: 1px solid var(--color-theme-neutral);
   background: linear-gradient(0deg, rgba(217, 3, 104, 0.15), rgba(217, 3, 104, 0.15)), url(../images/vines-background.svg);
   background-repeat: no-repeat;
   background-position-x: center;
+  margin-bottom: 2.25rem;
 }
 .mp3-player figcaption {
   font-weight: 600;

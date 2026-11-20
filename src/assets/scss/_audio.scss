@@ -14,10 +14,10 @@ iframe {
     padding: 1rem;
     background-color: white;
     max-width: var(--media-player-max-vw);
-    border: 1px solid var(--color-theme-neutral);
     background:linear-gradient(0deg, rgba(217, 3, 104, 0.15), rgba(217, 3, 104, 0.15)), url(../images/vines-background.svg);
     background-repeat: no-repeat;
     background-position-x: center;
+    margin-bottom: 2.25rem;
     figcaption {
         font-weight: 600;
         margin-bottom: 1rem;

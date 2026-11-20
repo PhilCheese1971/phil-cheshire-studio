@@ -107,10 +107,10 @@ nav {
       ul {
         margin-bottom: 2rem;
         li {
-          display: inline;
+          display: inline-block;
           padding-right: 1rem;
           &:not(:first-of-type) {
-            padding-left: 0.75rem;
+            padding-left: 1rem;
           }
           &:not(:last-of-type) {
             border-right: 1px solid var(--color-theme-darkest);

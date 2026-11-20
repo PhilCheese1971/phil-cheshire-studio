@@ -12,12 +12,12 @@
         ]
         .filter(Boolean)
         .join(" > ");
-        if (!heading) return "PhilCheshire.studio";
+        if (!heading) return "Phil Cheese Studio";
         const text = heading
             .replace(/&/g, "and")
             .toLowerCase()
             .replace(/\b\w/g, (c) => c.toUpperCase());
-        return `${text} > PhilCheshire.studio`;
+        return `${text} > Phil Cheese Studio`;
     },
   },
 }
