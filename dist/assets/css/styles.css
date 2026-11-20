@@ -1959,7 +1959,7 @@ h1.has-jump-to-nav {
   margin-bottom: 1.25rem;
 }
 
-p,
+p:not(.card__content__description p),
 p.lead {
   max-width: 46.875rem;
   margin: 0 auto 1.5rem auto;

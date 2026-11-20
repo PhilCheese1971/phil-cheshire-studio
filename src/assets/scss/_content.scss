@@ -8,7 +8,7 @@ h1 {
     }   
 }
 
-p,
+p:not(.card__content__description p),
 p.lead {
     max-width: rem-calc(750);
     margin: 0 auto spacing(1.5) auto;
