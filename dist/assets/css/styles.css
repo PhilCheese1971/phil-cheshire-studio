@@ -1650,17 +1650,6 @@ input[type=text]:focus-visible, input[type=email]:focus-visible, textarea:focus-
   margin: 0 auto;
   padding: 2.25rem 1.5rem 3.25rem;
 }
-.site-container:not(.home) {
-  background-image: url(../images/vines-background.svg);
-}
-.site-container.home {
-  background-image: url(../images/vines-background.svg);
-}
-@media (min-width: 768px) {
-  .site-container.home {
-    background-image: none;
-  }
-}
 @media (min-width: 768px) {
   .site-container {
     padding: 3rem 2.25rem 3rem;
@@ -1670,6 +1659,17 @@ input[type=text]:focus-visible, input[type=email]:focus-visible, textarea:focus-
   .site-container {
     padding: 3.75rem 3.25rem 3.25rem;
     height: auto;
+  }
+}
+.site-container:not(.home) {
+  background-image: url(../images/vines-background.svg);
+}
+.site-container.home {
+  background-image: url(../images/vines-background.svg);
+}
+@media (min-width: 768px) {
+  .site-container.home {
+    background-image: none;
   }
 }
 
@@ -1897,9 +1897,15 @@ nav.menu--mobile ul {
 
 .close-button {
   position: absolute;
-  right: 1.5rem;
+  right: calc(1.5rem + 15px);
   top: 2.25rem;
   background-color: var(--color-theme-primary-light);
+}
+@media (min-width: 768px) {
+  .close-button {
+    right: calc(2.25rem + 15px);
+    top: 3rem;
+  }
 }
 
 .menu-button {

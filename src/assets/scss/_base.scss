@@ -11,7 +11,7 @@ body {
     font-family: var(--font-theme-family-sans-serif);
     position: relative;
     padding-bottom: 2.5rem;
-
+    
     @include breakpoint(large) {
         padding: 3.5rem;
     }
@@ -64,6 +64,13 @@ input[type=text], input[type=email], textarea {
     background-position-x: center;
     margin: 0 auto;
     padding: 2.25rem 1.5rem 3.25rem;
+     @include breakpoint(small) {
+        padding: 3rem 2.25rem 3rem;
+    }
+    @include breakpoint(large) {
+        padding: 3.75rem 3.25rem 3.25rem;
+        height: auto;
+    }
     
     &:not(.home) {
        background-image: url(../images/vines-background.svg);
@@ -75,12 +82,6 @@ input[type=text], input[type=email], textarea {
         }
     }
     
-    @include breakpoint(small) {
-        padding: 3rem 2.25rem 3rem;
-    }
-    @include breakpoint(large) {
-        padding: 3.75rem 3.25rem 3.25rem;
-        height: auto;
-    }
+   
     
 }

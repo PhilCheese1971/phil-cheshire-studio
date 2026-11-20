@@ -11,9 +11,13 @@
 
 .close-button {
   position: absolute;
-  right: 1.5rem;
+  right: calc(1.5rem + 15px);
   top: 2.25rem;
   background-color: var(--color-theme-primary-light);
+  @include breakpoint(small) {
+      right: calc(2.25rem + 15px);
+      top: 3rem;
+    }
 }
 
 .menu-button {
@@ -21,10 +25,7 @@
   align-self: flex-start;
 }
 
-
-
 // Photoswipe icons
-
 .pswp__icn {
   width: 84px!important;
   height: 84px!important;
