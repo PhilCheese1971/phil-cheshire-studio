@@ -1897,13 +1897,13 @@ nav.menu--mobile ul {
 
 .close-button {
   position: absolute;
-  right: calc(1.5rem + 15px);
+  right: 1.5rem;
   top: 2.25rem;
   background-color: var(--color-theme-primary-light);
 }
 @media (min-width: 768px) {
   .close-button {
-    right: calc(2.25rem + 15px);
+    right: 2.25rem;
     top: 3rem;
   }
 }
