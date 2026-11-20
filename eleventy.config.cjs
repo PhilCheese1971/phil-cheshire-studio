@@ -42,7 +42,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "node_modules/photoswipe/dist": "photoswipe" });
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/assets/images");
-  eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   // This is combined with the npm script to reload the 11ty server when scss files get updated (which SASS doesn't do alone, saves messing around with browsersync)
   // According to Claude this should reload the CSS on a SCSS change without the npm script but I haven't found a way to make it work
