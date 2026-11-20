@@ -4,7 +4,7 @@
 h1 {
     margin-bottom: spacing(2.5);
     &.has-jump-to-nav {
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem;
     }   
 }
 
@@ -33,7 +33,6 @@ p {
     ol {
         max-width: rem-calc(750);
         margin: 0 auto spacing(1.5) auto;
-
         li {
             padding-bottom: spacing(1);
         }
@@ -46,6 +45,7 @@ p {
 
 ul {
     &.skills-list {
+        padding-left: 0;
         li {
             &:not(:last-child)::after {
                 content: ", ";

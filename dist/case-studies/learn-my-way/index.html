@@ -122,15 +122,15 @@
     <h2>Learning platform</h2> 
 <ul class="skills-list display-inline" aria-label="Skills list for this project">
   
-    <li class="display-inline">UX</li>
+    <li class="display-inline-block">UX</li>
 
-    <li class="display-inline">UI</li>
+    <li class="display-inline-block">UI</li>
 
-    <li class="display-inline">CSS</li>
+    <li class="display-inline-block">CSS</li>
 
-    <li class="display-inline">Angular</li>
+    <li class="display-inline-block">Angular</li>
 
-    <li class="display-inline">Adapt</li>
+    <li class="display-inline-block">Adapt</li>
 
 </ul>
 </div>
@@ -164,17 +164,21 @@
 </div>
 </section>
             </main>
-           
         </div>
-         <footer>
-                <p>&copy; Phil Cheshire <span id="currentYear"> 2026.</span> All rights reserved.</p>
-            </footer>
-            <script>document.querySelector("#currentYear").textContent = new Date().getFullYear();</script>
-            <!-- <script src="./page.js"></script> -->
-            <script type="module" src="/assets/js/dialog-triggers.js">
-            // import { trapFocusInDialog } from '${ctx.contextPath}/.resources/goodthings-magnolia/webresources/js/trap-dialog-focus.js';
-            // window.trapFocusInDialog = trapFocusInDialog;
-        </script>
+        <footer>
+            <p>&copy; Phil Cheshire <span id="currentYear"> 2026.</span> All rights reserved.</p>
+        </footer>
+        <script>document.querySelector("#currentYear").textContent = new Date().getFullYear();</script>
+        <!-- <script src="./page.js"></script> -->
+        <script type="module" src="/assets/js/dialog-triggers.js">
+        <script type="module" src="/assets/js/trap-dialog-focus.js"></script>
+        
+            //window.trapFocusInDialog = trapFocusInDialog;
+    
+        
+
+        
+      
         
         
 <dialog class="dialog--mobile-menu" aria-live="polite" data-name="mobile-menu-dialog">

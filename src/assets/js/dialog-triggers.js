@@ -2,6 +2,8 @@ const body = document.body;
 const html = document.documentElement;
 const dialogTriggers = document.querySelectorAll("[data-dialogtrigger]");
 let verticalWindowScrollPosition;
+import { trapFocusInDialog } from '/assets/js/trap-dialog-focus.js';
+
 dialogTriggers.forEach((currentDialog) => {
     currentDialog.addEventListener("click", () => {
         const getCurrentDialogTarget = currentDialog.getAttribute("data-target");
@@ -28,7 +30,7 @@ function setDialogFocusElements(dialog) {
     setTimeout(() => {
         firstFocusableElement.focus();
     }, 200);
-    //trapFocusInDialog(dialog);
+    trapFocusInDialog(dialog);
 }
 
 function closeCurrentDialogOnPressingEscapeKey(dialog) {

@@ -203,6 +203,9 @@ h1, h2, h3, .home-banner span {
 .display-inline {
   display: inline;
 }
+.display-inline-block {
+  display: inline-block;
+}
 .display-flex {
   display: flex;
 }
@@ -1865,12 +1868,13 @@ nav.menu--jump-to ul {
 }
 nav.menu--jump-to ul li {
   display: inline-block;
-  padding-right: 1rem;
+  line-height: 1;
 }
 nav.menu--jump-to ul li:not(:first-of-type) {
   padding-left: 1rem;
 }
 nav.menu--jump-to ul li:not(:last-of-type) {
+  padding-right: 1rem;
   border-right: 1px solid var(--color-theme-darkest);
 }
 nav.menu--mobile ul {
@@ -1946,7 +1950,7 @@ h1 {
   margin-bottom: 2.5rem;
 }
 h1.has-jump-to-nav {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 p,
@@ -1980,6 +1984,9 @@ p.lead {
   padding-left: 1.25rem;
 }
 
+ul.skills-list {
+  padding-left: 0;
+}
 ul.skills-list li:not(:last-child)::after {
   content: ", ";
 }
