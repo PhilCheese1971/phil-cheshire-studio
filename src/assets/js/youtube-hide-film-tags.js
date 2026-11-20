@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function hideFilmTagsOnPlayButtonClick(button) {
   button.addEventListener('click', () => {
-    button.parentElement.previousElementSibling.previousElementSibling.classList.add('hide');
+    button.parentElement.previousElementSibling.classList.add('hide');
   });
 }

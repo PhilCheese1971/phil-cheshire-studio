@@ -94,6 +94,7 @@
         {% set dialogClass = "dialog--mobile-menu" %}
         {% include 'dialog.njk' %}
         {% if youTube %}
+            <script src="/assets/js/vendor/lt-youtube-embed.js" defer></script>
             <script src="/assets/js/youtube-hide-film-tags.js"></script>
         {% endif %}
         {% if gallery %}
